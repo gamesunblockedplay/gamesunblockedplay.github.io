@@ -274,6 +274,7 @@ function generateAllGamesIndex(allGames) {
   <link rel="canonical" href="${SITE_URL}/all-games.html">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8687742238485131"
      crossorigin="anonymous"></script>
+  <script data-cfasync="false" src="https://grop.net/14/eeb4cf0865d0471035c3185feaa05874"></script>
   <style>
     body { margin: 0; font-family: system-ui, sans-serif; background: #08051a; color: #e5e7eb; }
     .wrap { max-width: 1100px; margin: 0 auto; padding: 32px 20px 56px; }
@@ -374,6 +375,7 @@ function generateGamePage(game, allGames) {
   <script type="application/ld+json">${JSON.stringify(structuredData)}</script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8687742238485131"
      crossorigin="anonymous"></script>
+  <script data-cfasync="false" src="https://grop.net/14/eeb4cf0865d0471035c3185feaa05874"></script>
   <style>
     :root {
       --bg:#08051a; --bg2:#0d0a26; --bg3:#12103a; --surface:rgba(255,255,255,0.04); --surface2:rgba(255,255,255,0.08);
