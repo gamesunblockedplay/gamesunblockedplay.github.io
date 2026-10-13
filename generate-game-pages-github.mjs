@@ -287,10 +287,14 @@ function generateAllGamesIndex(allGames) {
     .game-link img { width: 100%; aspect-ratio: 16/10; object-fit: cover; background: #120d2a; }
     .game-link strong { display: block; font-size: 1rem; padding: 12px 14px 6px; }
     .game-link span { display: block; color: #94a3b8; font-size: 0.9rem; padding: 0 14px 14px; line-height: 1.5; }
+    .ad-banner { display: flex; justify-content: center; margin: 24px 0; background: rgba(255,255,255,0.02); border: 1px dashed rgba(255,255,255,0.05); border-radius: 12px; padding: 8px 0; width: 100%; overflow: hidden; }
+    .ads-duo-row { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin: 24px auto; max-width: 660px; }
+    .ad-container-300 { min-width: 300px; min-height: 250px; background: rgba(255,255,255,0.02); border: 1px dashed rgba(255,255,255,0.05); border-radius: 12px; padding: 8px; display: flex; justify-content: center; align-items: center; overflow: hidden; }
   </style>
 </head>
 <body>
   <div class="wrap">
+    ${getAdHTML(AD_TOP)}
     <h1>All Unblocked Games</h1>
     <p>Static HTML directory of every game page available on Unblocked Games G+.</p>
     <a class="top-link" href="/">Back to homepage</a>
@@ -298,6 +302,7 @@ function generateAllGamesIndex(allGames) {
 ${items}
     </ul>
     ${getAdsDuoRowHTML()}
+    ${getAdHTML(AD_BOTTOM)}
   </div>
 </body>
 </html>`;
