@@ -112,6 +112,36 @@ function getAdHTML(key) {
   return `<div class="ad-banner"><iframe srcdoc="${srcdoc}" width="728" height="90" frameborder="0" scrolling="no" style="display:block;margin:0;padding:0;border:none;"></iframe></div>`;
 }
 
+function getAdsDuoRowHTML() {
+  return `
+      <div class="ads-duo-row">
+        <div class="ad-container-300">
+          <script>
+            atOptions = {
+              'key': '5c2ef2cb97dff829617ea4c4e1d5ca7b',
+              'format': 'iframe',
+              'height': 250,
+              'width': 300,
+              'params': {}
+            };
+          </script>
+          <script src="https://motionlesspatronage.com/5c2ef2cb97dff829617ea4c4e1d5ca7b/invoke.js"></script>
+        </div>
+        <div class="ad-container-300">
+          <script>
+            atOptions = {
+              'key' : 'ef5cdc72a62a03d1d689161ba6bc82f6',
+              'format' : 'iframe',
+              'height' : 250,
+              'width' : 300,
+              'params' : {}
+            };
+          </script>
+          <script src="https://grop.net/22/ef5cdc72a62a03d1d689161ba6bc82f6"></script>
+        </div>
+      </div>`;
+}
+
 function getCategoryCount(categoryId) {
   if (categoryId === 'all') return games.length;
   return games.filter(game => {
@@ -265,6 +295,7 @@ function generateAllGamesIndex(allGames) {
     <ul>
 ${items}
     </ul>
+    ${getAdsDuoRowHTML()}
   </div>
 </body>
 </html>`;
@@ -414,6 +445,13 @@ function generateGamePage(game, allGames) {
     .ad-banner {
       display:flex; justify-content:center; margin:16px 0; background:rgba(255,255,255,0.02); border:1px dashed rgba(255,255,255,0.05);
       border-radius:12px; padding:8px 0; width:100%; overflow:hidden;
+    }
+    .ads-duo-row {
+      display:flex; justify-content:center; gap:16px; flex-wrap:wrap; margin:18px 0;
+    }
+    .ad-container-300 {
+      min-width:300px; min-height:250px; background:rgba(255,255,255,0.02); border:1px dashed rgba(255,255,255,0.05);
+      border-radius:12px; padding:8px; display:flex; justify-content:center; align-items:center; overflow:hidden;
     }
     .game-container {
       position:relative; width:100%; background:#000; border-radius:var(--radius-lg); overflow:hidden; border:1px solid var(--border);
@@ -596,6 +634,7 @@ ${relatedCards}
       </div>` : ''}
 
       ${getAdHTML(AD_BOTTOM)}
+      ${getAdsDuoRowHTML()}
     </div>
 
     <footer class="site-footer">

@@ -12,6 +12,20 @@ function getAdHTML(key) {
   return `<div class="ad-banner" style="display:flex;justify-content:center;margin:16px 0;background:rgba(255,255,255,0.02);border:1px dashed rgba(255,255,255,0.05);border-radius:12px;padding:8px 0;width:100%;overflow:hidden;"><iframe srcdoc="${srcdoc}" width="728" height="90" frameborder="0" scrolling="no" style="display:block;margin:0;padding:0;border:none;"></iframe></div>`;
 }
 
+function getAdsDuoRowHTML() {
+  const srcdoc1 = `<!DOCTYPE html><html><head><style>body{margin:0;padding:0;display:flex;justify-content:center;align-items:center;background:transparent;overflow:hidden;}</style></head><body><script>window.atOptions={'key':'5c2ef2cb97dff829617ea4c4e1d5ca7b','format':'iframe','height':250,'width':300,'params':{}};</script><script src="https://motionlesspatronage.com/5c2ef2cb97dff829617ea4c4e1d5ca7b/invoke.js"></script></body></html>`.replace(/"/g, '&quot;');
+  const srcdoc2 = `<!DOCTYPE html><html><head><style>body{margin:0;padding:0;display:flex;justify-content:center;align-items:center;background:transparent;overflow:hidden;}</style></head><body><script>window.atOptions={'key':'ef5cdc72a62a03d1d689161ba6bc82f6','format':'iframe','height':250,'width':300,'params':{}};</script><script src="https://grop.net/22/ef5cdc72a62a03d1d689161ba6bc82f6"></script></body></html>`.replace(/"/g, '&quot;');
+  return `
+  <div class="ads-duo-row" style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin:18px 0;">
+    <div class="ad-container-300" style="min-width:300px;min-height:250px;background:rgba(255,255,255,0.02);border:1px dashed rgba(255,255,255,0.05);border-radius:12px;padding:8px;display:flex;justify-content:center;align-items:center;overflow:hidden;">
+      <iframe srcdoc="${srcdoc1}" width="300" height="250" frameborder="0" scrolling="no" style="display:block;margin:0;padding:0;border:none;"></iframe>
+    </div>
+    <div class="ad-container-300" style="min-width:300px;min-height:250px;background:rgba(255,255,255,0.02);border:1px dashed rgba(255,255,255,0.05);border-radius:12px;padding:8px;display:flex;justify-content:center;align-items:center;overflow:hidden;">
+      <iframe srcdoc="${srcdoc2}" width="300" height="250" frameborder="0" scrolling="no" style="display:block;margin:0;padding:0;border:none;"></iframe>
+    </div>
+  </div>`;
+}
+
 // ──── State ────────────────────────────────────────────────
 let GAMES = [];
 let currentCategory = 'all';
@@ -365,6 +379,7 @@ function renderHome() {
         </div>
 
         ${getAdHTML(AD_BOTTOM)}
+        ${getAdsDuoRowHTML()}
         ${buildHomeSeoBlock()}
         ${buildFooter()}
       </div>
@@ -574,6 +589,7 @@ function renderPlay({ id }) {
             </div>
           </div>` : ''}
           ${getAdHTML(AD_BOTTOM)}
+          ${getAdsDuoRowHTML()}
         </div>
       </div>
     </div>
