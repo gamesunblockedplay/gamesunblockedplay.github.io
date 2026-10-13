@@ -10,6 +10,15 @@
     document.querySelectorAll('.btn-install-app').forEach(btn => {
       btn.style.display = 'none';
     });
+    // Tag URL for analytics tracking (Histats, Google Analytics, etc.)
+    if (!window.location.search.includes('utm_source=')) {
+      try {
+        const u = new URL(window.location.href);
+        u.searchParams.set('utm_source', 'pwa');
+        u.searchParams.set('utm_medium', 'app');
+        window.history.replaceState(null, '', u.toString());
+      } catch (e) {}
+    }
     return;
   }
 

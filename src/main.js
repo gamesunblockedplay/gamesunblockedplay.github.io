@@ -119,6 +119,7 @@ function buildFooter() {
         <a href="/?page=tos" class="route-link" data-route="/?page=tos">Terms of Service</a>
         <a href="/?page=privacy" class="route-link" data-route="/?page=privacy">Privacy Policy</a>
         <a href="/all-games.html">All Games</a>
+        <a href="https://convertpdftoword.github.io" target="_blank" rel="noopener" title="Convert PDFtoWord Online Free">Convert PDFtoWord</a>
       </div>
       <div class="footer-copy">
         &copy; ${new Date().getFullYear()} Unblocked Games G+. All rights reserved.

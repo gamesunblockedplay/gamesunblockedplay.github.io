@@ -359,6 +359,14 @@ ${items}
     </ul>
     ${getAdsDuoRowHTML()}
     ${getAdHTML(AD_BOTTOM)}
+    <footer style="margin-top:40px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.08);text-align:center;font-size:0.85rem;color:#94a3b8;">
+      <p style="margin:0 0 8px;">
+        <a href="/" style="color:#c4b5fd;text-decoration:none;margin:0 10px;">Home</a>
+        <a href="/all-games.html" style="color:#c4b5fd;text-decoration:none;margin:0 10px;">All Games</a>
+        <a href="https://convertpdftoword.github.io" target="_blank" rel="noopener" title="Convert PDFtoWord Online Free" style="color:#38bdf8;text-decoration:none;margin:0 10px;font-weight:600;">Convert PDFtoWord</a>
+      </p>
+      <p style="margin:0;font-size:0.8rem;color:#64748b;">&copy; ${new Date().getFullYear()} Unblocked Games G+. All rights reserved.</p>
+    </footer>
   </div>
   <script src="/pwa-client.js" defer></script>
 </body>
@@ -768,6 +776,7 @@ ${relatedCards}
         <a href="/">Home</a>
         <a href="/all-games.html">All Games</a>
         <a href="/sitemap.xml">Sitemap</a>
+        <a href="https://convertpdftoword.github.io" target="_blank" rel="noopener" title="Convert PDFtoWord Online Free">Convert PDFtoWord</a>
       </div>
       <div>&copy; ${new Date().getFullYear()} Unblocked Games G+. All rights reserved.</div>
     </footer>
