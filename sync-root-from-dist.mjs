@@ -61,5 +61,27 @@ const rootImgDir = path.join(root, 'img');
 if (fs.existsSync(publicImgDir)) {
   copyDir(publicImgDir, rootImgDir);
 }
+const pwaFiles = [
+  'sw.js',
+  'manifest.webmanifest',
+  'manifest.json',
+  'favicon.svg',
+  'icon-192.png',
+  'icon-512.png',
+  'icon-512-maskable.png',
+  'apple-touch-icon.png'
+];
+
+for (const file of pwaFiles) {
+  const distFile = path.join(distDir, file);
+  if (fs.existsSync(distFile)) {
+    copyFile(distFile, path.join(root, file));
+  } else {
+    const pubFile = path.join(publicDir, file);
+    if (fs.existsSync(pubFile)) {
+      copyFile(pubFile, path.join(root, file));
+    }
+  }
+}
 
 console.log('Root publish files synced from dist.');

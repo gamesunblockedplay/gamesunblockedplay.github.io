@@ -2,6 +2,7 @@ import './style.css';
 import { CATEGORIES, CAT_ICONS, getGameUrl, getThumbUrl } from './games.js';
 import { on, navigate, init as initRouter } from './router.js';
 import { STATIC_PAGES } from './staticPages.js';
+import { initPWA, promptInstall } from './pwa.js';
 
 // ──── Ads ──────────────────────────────────────────────────
 const AD_TOP = '72aae8a75da17a34e48ed84feaa311bf';
@@ -96,6 +97,10 @@ function buildHeader() {
         <button class="search-clear-btn" id="search-clear" style="display:${searchQuery ? 'flex' : 'none'}" aria-label="Clear search">✕</button>
       </div>
       <div class="header-count-wrap">
+        <button class="btn-install-app" id="btn-install-app" aria-label="Install App" title="Install Unblocked Games G+ as an App" style="display:none;">
+          <span class="install-icon">📲</span>
+          <span class="install-text">Install App</span>
+        </button>
         <span class="header-count">${GAMES.length}+ Games</span>
       </div>
     </header>
@@ -665,5 +670,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     </div>`;
   await loadGames();
   initRouter();
+  initPWA();
 });
+
+document.addEventListener('click', e => {
+  if (e.target.closest('#btn-install-app')) {
+    promptInstall();
+  }
+});
+
 

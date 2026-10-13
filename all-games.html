@@ -7,6 +7,14 @@
   <meta name="description" content="Browse all static HTML game pages on Unblocked Games G+.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://unblockgamegplus.github.io/all-games.html">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#7c3aed">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Games G+">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8687742238485131"
      crossorigin="anonymous"></script>
   <script data-cfasync="false" src="https://grop.net/14/eeb4cf0865d0471035c3185feaa05874"></script>
@@ -5567,5 +5575,12 @@
       </div>
     <div class="ad-banner"><iframe srcdoc="<!DOCTYPE html><html><head><style>body{margin:0;padding:0;display:flex;justify-content:center;align-items:center;background:transparent;overflow:hidden;}</style></head><body><script>window.atOptions={key:'4b03159602cba0243869c415124b923e',format:'iframe',height:90,width:728,params:{}};</script><script src=&quot;https://biggerbreakerfind.com/4b03159602cba0243869c415124b923e/invoke.js&quot;></script></body></html>" width="728" height="90" frameborder="0" scrolling="no" style="display:block;margin:0;padding:0;border:none;"></iframe></div>
   </div>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch(() => {});
+      });
+    }
+  </script>
 </body>
 </html>

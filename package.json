@@ -4,9 +4,10 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "generate:pwa": "node generate-pwa-icons.mjs",
     "generate:games": "node generate-game-pages-github.mjs",
     "generate:sitemap": "node generate-sitemap-github.mjs",
-    "prebuild": "node generate-game-pages-github.mjs && node generate-sitemap-github.mjs",
+    "prebuild": "node generate-pwa-icons.mjs && node generate-game-pages-github.mjs && node generate-sitemap-github.mjs",
     "dev": "vite",
     "build": "vite build",
     "postbuild": "node sync-root-from-dist.mjs",
