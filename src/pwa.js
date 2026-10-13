@@ -30,6 +30,7 @@ export function initPWA() {
 
   if (isStandalone) {
     console.log('[PWA] Running in standalone app mode');
+    updateInstallButtons(false);
     return;
   }
 
@@ -39,14 +40,18 @@ export function initPWA() {
     e.preventDefault();
     deferredPrompt = e;
 
-    // Show header install button if exists
-    updateInstallButtons(true);
-
-    // Show banner after 3 seconds if not previously dismissed
+    // Show banner after 2.5 seconds if not previously dismissed
     setTimeout(() => {
       showInstallBanner();
-    }, 3000);
+    }, 2500);
   });
+
+  // Display banner after 4 seconds on page load if not dismissed
+  setTimeout(() => {
+    if (!isStandalone && localStorage.getItem('pwa_prompt_dismissed') !== '1') {
+      showInstallBanner();
+    }
+  }, 4000);
 
   // 3. Listen for appinstalled
   window.addEventListener('appinstalled', () => {

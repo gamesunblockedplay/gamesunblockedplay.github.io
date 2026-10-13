@@ -299,6 +299,47 @@ function generateAllGamesIndex(allGames) {
     .ad-banner { display: flex; justify-content: center; margin: 24px 0; background: rgba(255,255,255,0.02); border: 1px dashed rgba(255,255,255,0.05); border-radius: 12px; padding: 8px 0; width: 100%; overflow: hidden; }
     .ads-duo-row { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin: 24px auto; max-width: 660px; }
     .ad-container-300 { min-width: 300px; min-height: 250px; background: rgba(255,255,255,0.02); border: 1px dashed rgba(255,255,255,0.05); border-radius: 12px; padding: 8px; display: flex; justify-content: center; align-items: center; overflow: hidden; }
+    .btn-install-app {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: linear-gradient(135deg, rgba(139,92,246,0.25), rgba(6,182,212,0.25));
+      border: 1px solid rgba(139,92,246,0.45); color: #fff; font-size: 0.82rem; font-weight: 700;
+      padding: 7px 16px; border-radius: 999px; cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 0 12px rgba(139,92,246,0.2); white-space: nowrap; text-decoration: none;
+    }
+    .btn-install-app:hover {
+      background: linear-gradient(135deg, #8b5cf6, #06b6d4);
+      border-color: #06b6d4; transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(139,92,246,0.45);
+    }
+    .pwa-install-banner {
+      position: fixed; bottom: 24px; right: 24px; z-index: 9999;
+      background: rgba(13, 10, 38, 0.95); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(139, 92, 246, 0.4); box-shadow: 0 12px 36px rgba(0,0,0,0.6), 0 0 20px rgba(139,92,246,0.25);
+      border-radius: 16px; padding: 14px 18px; display: flex; align-items: center; gap: 14px; max-width: 400px;
+      animation: slideUpPwa 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @keyframes slideUpPwa {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .pwa-banner-icon { width: 42px; height: 42px; border-radius: 10px; flex-shrink: 0; box-shadow: 0 2px 8px rgba(0,0,0,0.3); }
+    .pwa-banner-content { flex: 1; }
+    .pwa-banner-title { font-size: 0.85rem; font-weight: 700; color: #fff; margin-bottom: 2px; }
+    .pwa-banner-desc { font-size: 0.75rem; color: #a89dc9; line-height: 1.25; }
+    .pwa-banner-actions { display: flex; align-items: center; gap: 8px; }
+    .pwa-btn-install {
+      background: linear-gradient(135deg, #8b5cf6, #7c3aed); color: #fff; border: none; border-radius: 8px;
+      font-size: 0.78rem; font-weight: 700; padding: 8px 14px; cursor: pointer; transition: all 0.2s; white-space: nowrap;
+    }
+    .pwa-btn-install:hover { background: linear-gradient(135deg, #a78bfa, #8b5cf6); transform: translateY(-1px); }
+    .pwa-btn-close {
+      background: transparent; color: #6b6490; border: none; font-size: 16px; cursor: pointer; padding: 4px; border-radius: 4px; line-height: 1;
+    }
+    .pwa-btn-close:hover { color: #fff; }
+    @media (max-width: 480px) {
+      .pwa-install-banner { left: 12px; right: 12px; bottom: 16px; max-width: none; }
+    }
   </style>
 </head>
 <body>
@@ -306,20 +347,20 @@ function generateAllGamesIndex(allGames) {
     ${getAdHTML(AD_TOP)}
     <h1>All Unblocked Games</h1>
     <p>Static HTML directory of every game page available on Unblocked Games G+.</p>
-    <a class="top-link" href="/">Back to homepage</a>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin:12px 0 28px;flex-wrap:wrap;gap:12px;">
+      <a class="top-link" href="/" style="margin:0;">← Back to homepage</a>
+      <button class="btn-install-app" id="btn-install-app" type="button" aria-label="Install App" title="Install Unblocked Games G+ as an App">
+        <span class="install-icon">📲</span>
+        <span class="install-text">Install App</span>
+      </button>
+    </div>
     <ul>
 ${items}
     </ul>
     ${getAdsDuoRowHTML()}
     ${getAdHTML(AD_BOTTOM)}
   </div>
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js').catch(() => {});
-      });
-    }
-  </script>
+  <script src="/pwa-client.js" defer></script>
 </body>
 </html>`;
 }
@@ -600,6 +641,51 @@ function generateGamePage(game, allGames) {
       .game-seo-card { padding:18px 16px; }
       .related-grid { grid-template-columns:repeat(2, minmax(0, 1fr)); }
     }
+    .btn-install-app {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: linear-gradient(135deg, rgba(139,92,246,0.25), rgba(6,182,212,0.25));
+      border: 1px solid rgba(139,92,246,0.45); color: #fff; font-size: 0.8rem; font-weight: 700;
+      padding: 6px 14px; border-radius: 999px; cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 0 12px rgba(139,92,246,0.2); white-space: nowrap; text-decoration: none;
+    }
+    .btn-install-app:hover {
+      background: linear-gradient(135deg, #8b5cf6, #06b6d4);
+      border-color: #06b6d4; transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(139,92,246,0.45);
+    }
+    .pwa-install-banner {
+      position: fixed; bottom: 24px; right: 24px; z-index: 9999;
+      background: rgba(13, 10, 38, 0.95); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(139, 92, 246, 0.4); box-shadow: 0 12px 36px rgba(0,0,0,0.6), 0 0 20px rgba(139,92,246,0.25);
+      border-radius: 16px; padding: 14px 18px; display: flex; align-items: center; gap: 14px; max-width: 400px;
+      animation: slideUpPwa 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @keyframes slideUpPwa {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .pwa-banner-icon { width: 42px; height: 42px; border-radius: 10px; flex-shrink: 0; box-shadow: 0 2px 8px rgba(0,0,0,0.3); }
+    .pwa-banner-content { flex: 1; }
+    .pwa-banner-title { font-size: 0.85rem; font-weight: 700; color: #fff; margin-bottom: 2px; }
+    .pwa-banner-desc { font-size: 0.75rem; color: #a89dc9; line-height: 1.25; }
+    .pwa-banner-actions { display: flex; align-items: center; gap: 8px; }
+    .pwa-btn-install {
+      background: linear-gradient(135deg, #8b5cf6, #7c3aed); color: #fff; border: none; border-radius: 8px;
+      font-size: 0.78rem; font-weight: 700; padding: 8px 14px; cursor: pointer; transition: all 0.2s; white-space: nowrap;
+    }
+    .pwa-btn-install:hover { background: linear-gradient(135deg, #a78bfa, #8b5cf6); transform: translateY(-1px); }
+    .pwa-btn-close {
+      background: transparent; color: #6b6490; border: none; font-size: 16px; cursor: pointer; padding: 4px; border-radius: 4px; line-height: 1;
+    }
+    .pwa-btn-close:hover { color: #fff; }
+    @media (max-width: 640px) {
+      .btn-install-app .install-text { display: none; }
+      .btn-install-app { padding: 6px 10px; }
+    }
+    @media (max-width: 480px) {
+      .pwa-install-banner { left: 12px; right: 12px; bottom: 16px; max-width: none; }
+    }
   </style>
 </head>
 <body>
@@ -608,10 +694,16 @@ function generateGamePage(game, allGames) {
       <button class="btn-menu" id="btn-menu" type="button" aria-label="Open categories">☰</button>
       <a href="/" class="header-logo">Unblocked<span class="g">Games</span><span class="gplus">G+</span></a>
     </div>
-    <nav class="header-links">
-      <a href="/">Home</a>
-      <a href="/all-games.html">All Games</a>
-    </nav>
+    <div class="header-actions" style="display:flex;align-items:center;gap:10px;">
+      <button class="btn-install-app" id="btn-install-app" type="button" aria-label="Install App" title="Install Unblocked Games G+ as an App">
+        <span class="install-icon">📲</span>
+        <span class="install-text">Install App</span>
+      </button>
+      <nav class="header-links">
+        <a href="/">Home</a>
+        <a href="/all-games.html">All Games</a>
+      </nav>
+    </div>
   </header>
 
   <div class="layout">
@@ -739,13 +831,7 @@ ${relatedCards}
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
   })();</script>
   <noscript><a href="/" target="_blank"><img src="//sstatic1.histats.com/0.gif?3998156&101" alt="" border="0"></a></noscript>
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js').catch(() => {});
-      });
-    }
-  </script>
+  <script src="/pwa-client.js" defer></script>
 </body>
 </html>`;
 }

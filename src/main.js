@@ -97,7 +97,7 @@ function buildHeader() {
         <button class="search-clear-btn" id="search-clear" style="display:${searchQuery ? 'flex' : 'none'}" aria-label="Clear search">✕</button>
       </div>
       <div class="header-count-wrap">
-        <button class="btn-install-app" id="btn-install-app" aria-label="Install App" title="Install Unblocked Games G+ as an App" style="display:none;">
+        <button class="btn-install-app" id="btn-install-app" type="button" aria-label="Install App" title="Install Unblocked Games G+ as an App">
           <span class="install-icon">📲</span>
           <span class="install-text">Install App</span>
         </button>

@@ -63,6 +63,7 @@ if (fs.existsSync(publicImgDir)) {
 }
 const pwaFiles = [
   'sw.js',
+  'pwa-client.js',
   'manifest.webmanifest',
   'manifest.json',
   'favicon.svg',

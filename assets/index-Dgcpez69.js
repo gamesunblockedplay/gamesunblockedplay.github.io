@@ -38,7 +38,7 @@
         <li>Your contact information and a statement of good faith belief.</li>
       </ul>
       <p>We process all valid requests promptly and will remove infringing materials immediately upon verification.</p>
-    `}},u=null;function d(){if(`serviceWorker`in navigator&&window.addEventListener(`load`,()=>{navigator.serviceWorker.register(`/sw.js`).then(e=>{e.addEventListener(`updatefound`,()=>{let t=e.installing;t?.addEventListener(`statechange`,()=>{t.state===`installed`&&navigator.serviceWorker.controller&&console.log(`[PWA] New version available.`)})})}).catch(e=>{console.warn(`[PWA] SW registration error:`,e)})}),window.matchMedia(`(display-mode: standalone)`).matches||window.navigator.standalone===!0){console.log(`[PWA] Running in standalone app mode`);return}window.addEventListener(`beforeinstallprompt`,e=>{e.preventDefault(),u=e,p(!0),setTimeout(()=>{m()},3e3)}),window.addEventListener(`appinstalled`,()=>{console.log(`[PWA] App installed successfully`),u=null,p(!1),h()})}function f(){if(!u){alert(`To install Unblocked Games G+:
+    `}},u=null;function d(){`serviceWorker`in navigator&&window.addEventListener(`load`,()=>{navigator.serviceWorker.register(`/sw.js`).then(e=>{e.addEventListener(`updatefound`,()=>{let t=e.installing;t?.addEventListener(`statechange`,()=>{t.state===`installed`&&navigator.serviceWorker.controller&&console.log(`[PWA] New version available.`)})})}).catch(e=>{console.warn(`[PWA] SW registration error:`,e)})});let e=window.matchMedia(`(display-mode: standalone)`).matches||window.navigator.standalone===!0;if(e){console.log(`[PWA] Running in standalone app mode`),p(!1);return}window.addEventListener(`beforeinstallprompt`,e=>{e.preventDefault(),u=e,setTimeout(()=>{m()},2500)}),setTimeout(()=>{!e&&localStorage.getItem(`pwa_prompt_dismissed`)!==`1`&&m()},4e3),window.addEventListener(`appinstalled`,()=>{console.log(`[PWA] App installed successfully`),u=null,p(!1),h()})}function f(){if(!u){alert(`To install Unblocked Games G+:
 • On Chrome/Edge: Click the install icon (⊕) in the browser address bar.
 • On iPhone/iPad: Tap Share and choose "Add to Home Screen".
 • On Android: Tap Menu (⋮) and choose "Install App" or "Add to Home Screen".`);return}u.prompt(),u.userChoice.then(e=>{e.outcome===`accepted`&&(console.log(`[PWA] User accepted the install prompt`),p(!1),h()),u=null})}function p(e){document.querySelectorAll(`.btn-install-app`).forEach(t=>{e?t.style.display=`inline-flex`:t.style.display=`none`})}function m(){if(localStorage.getItem(`pwa_prompt_dismissed`)===`1`||document.getElementById(`pwa-install-banner`))return;let e=document.createElement(`div`);e.id=`pwa-install-banner`,e.className=`pwa-install-banner`,e.innerHTML=`
@@ -83,7 +83,7 @@
         <button class="search-clear-btn" id="search-clear" style="display:${S?`flex`:`none`}" aria-label="Clear search">✕</button>
       </div>
       <div class="header-count-wrap">
-        <button class="btn-install-app" id="btn-install-app" aria-label="Install App" title="Install Unblocked Games G+ as an App" style="display:none;">
+        <button class="btn-install-app" id="btn-install-app" type="button" aria-label="Install App" title="Install Unblocked Games G+ as an App">
           <span class="install-icon">📲</span>
           <span class="install-text">Install App</span>
         </button>

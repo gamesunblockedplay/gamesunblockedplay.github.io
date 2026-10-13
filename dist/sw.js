@@ -9,7 +9,8 @@ const PRECACHE_ASSETS = [
   '/icon-192.png',
   '/icon-512.png',
   '/apple-touch-icon.png',
-  '/all-games.html'
+  '/all-games.html',
+  '/pwa-client.js'
 ];
 
 // Domains that should ALWAYS bypass service worker cache (ads, analytics, dynamic CDN)
