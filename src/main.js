@@ -570,6 +570,7 @@ function renderPlay({ id }) {
               sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-pointer-lock allow-top-navigation allow-modals"
             ></iframe>
           </div>
+          ${getAdsDuoRowHTML()}
           ${buildGameSeoContent(game, cats)}
           ${related.length ? `
           <div class="related-section">
@@ -589,7 +590,6 @@ function renderPlay({ id }) {
             </div>
           </div>` : ''}
           ${getAdHTML(AD_BOTTOM)}
-          ${getAdsDuoRowHTML()}
         </div>
       </div>
     </div>

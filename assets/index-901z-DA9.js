@@ -343,6 +343,7 @@
               sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-pointer-lock allow-top-navigation allow-modals"
             ></iframe>
           </div>
+          ${p()}
           ${D(i,s)}
           ${g.length?`
           <div class="related-section">
@@ -362,7 +363,6 @@
             </div>
           </div>`:``}
           ${f(d)}
-          ${p()}
         </div>
       </div>
     </div>

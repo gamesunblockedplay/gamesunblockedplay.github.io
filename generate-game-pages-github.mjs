@@ -623,6 +623,8 @@ function generateGamePage(game, allGames) {
         </div>
       </div>
 
+      ${getAdsDuoRowHTML()}
+
       ${buildGameSeoContent(game, cats)}
 
       ${related.length ? `
@@ -634,7 +636,6 @@ ${relatedCards}
       </div>` : ''}
 
       ${getAdHTML(AD_BOTTOM)}
-      ${getAdsDuoRowHTML()}
     </div>
 
     <footer class="site-footer">
