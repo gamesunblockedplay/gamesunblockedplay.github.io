@@ -42,6 +42,11 @@ if (fs.existsSync(dist404)) {
   copyFile(dist404, path.join(root, '404.html'));
 }
 
+const distAdsTxt = path.join(distDir, 'ads.txt');
+if (fs.existsSync(distAdsTxt)) {
+  copyFile(distAdsTxt, path.join(root, 'ads.txt'));
+}
+
 if (fs.existsSync(distAssetsDir)) {
   copyDir(distAssetsDir, rootAssetsDir);
 }
