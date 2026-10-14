@@ -272,6 +272,7 @@ function generateAllGamesIndex(allGames) {
   <meta name="description" content="Browse all static HTML game pages on Unblocked Games G+.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="${SITE_URL}/all-games.html">
+  <link rel="preload" as="script" href="https://live.demand.supply/up.js"><script async data-cfasync="false" type="text/javascript" src="https://live.demand.supply/up.js"></script>
   <link rel="manifest" href="/manifest.webmanifest">
   <meta name="theme-color" content="#7c3aed">
   <meta name="mobile-web-app-capable" content="yes">
@@ -425,6 +426,7 @@ function generateGamePage(game, allGames) {
   <meta name="robots" content="index, follow">
   <meta name="author" content="Unblocked Games G+">
   <link rel="canonical" href="${escapeHtml(url)}">
+  <link rel="preload" as="script" href="https://live.demand.supply/up.js"><script async data-cfasync="false" type="text/javascript" src="https://live.demand.supply/up.js"></script>
   <meta property="og:type" content="website">
   <meta property="og:url" content="${escapeHtml(url)}">
   <meta property="og:title" content="${escapeHtml(title)}">
