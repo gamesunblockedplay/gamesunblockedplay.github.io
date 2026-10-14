@@ -28,6 +28,7 @@ function generateAllGamesIndex(games) {
   <meta name="description" content="Browse all static HTML game pages on Unblocked Games G+.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://unblockgamegplus.pages.dev/all-games.html">
+  <link rel="preload" as="script" href="https://live.demand.supply/up.js"><script async data-cfasync="false" type="text/javascript" src="https://live.demand.supply/up.js"></script>
   <style>
     body { margin: 0; font-family: system-ui, sans-serif; background: #08051a; color: #e5e7eb; }
     .wrap { max-width: 1100px; margin: 0 auto; padding: 32px 20px 56px; }
