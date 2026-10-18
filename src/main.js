@@ -401,7 +401,7 @@ function renderHome() {
     <div class="layout">
       ${buildSidebar()}
       <div class="main-content">
-        ${getAdSenseHTML('Iklan Responsive unblockedgames - Top Banner')}
+        ${getAdSenseHTML(ADSENSE_SLOT_TOP, 'Iklan Responsive unblockedgames')}
         
         <div class="section-header">
           <h1 class="section-title" id="section-title">

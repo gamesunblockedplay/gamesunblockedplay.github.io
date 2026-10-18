@@ -300,7 +300,7 @@
     <div class="layout">
       ${N()}
       <div class="main-content">
-        ${S(`Iklan Responsive unblockedgames - Top Banner`)}
+        ${S(b,`Iklan Responsive unblockedgames`)}
         
         <div class="section-header">
           <h1 class="section-title" id="section-title">
