@@ -112,7 +112,7 @@ function getAdHTML(key) {
   return `<div class="ad-banner"><iframe srcdoc="${srcdoc}" width="728" height="90" frameborder="0" scrolling="no" style="display:block;margin:0;padding:0;border:none;"></iframe></div>`;
 }
 
-function getAdSenseHTML(comment = 'Iklan Responsive unblockedgames') {
+function getAdSenseHTML(comment = 'Iklan Responsive unblockedgames 2') {
   return `
     <div class="ad-banner-adsense" style="display:block;margin:16px auto;max-width:100%;overflow:hidden;text-align:center;min-height:90px;">
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8687742238485131"
@@ -121,7 +121,7 @@ function getAdSenseHTML(comment = 'Iklan Responsive unblockedgames') {
       <ins class="adsbygoogle"
            style="display:block"
            data-ad-client="ca-pub-8687742238485131"
-           data-ad-slot="8861468349"
+           data-ad-slot="6097283217"
            data-ad-format="auto"
            data-full-width-responsive="true"></ins>
       <script>
