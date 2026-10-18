@@ -353,8 +353,10 @@ function buildHomeSeoBlock() {
       </div>
     </div>
 
-      <div class="home-seo-categories">
-        <h3>Popular Categories</h3>
+    ${getAdSenseHTML(ADSENSE_SLOT_HERO, 'Iklan Responsive unblockedgames 2')}
+
+    <div class="home-seo-categories">
+      <h3>Popular Categories</h3>
         <div class="home-cat-chips">
           ${CATEGORIES.filter(c => c.id !== 'all').slice(0, 12).map(c => {
             const count = getCatCount(c.id);
