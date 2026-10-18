@@ -112,6 +112,22 @@ function getAdHTML(key) {
   return `<div class="ad-banner"><iframe srcdoc="${srcdoc}" width="728" height="90" frameborder="0" scrolling="no" style="display:block;margin:0;padding:0;border:none;"></iframe></div>`;
 }
 
+function getAdSenseHTML(comment = 'Iklan Responsive unblockedgames') {
+  return `
+    <div class="ad-banner-adsense" style="display:block;margin:16px auto;max-width:100%;overflow:hidden;text-align:center;min-height:90px;">
+      <!-- ${comment} -->
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-8687742238485131"
+           data-ad-slot="8861468349"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>
+           (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>`;
+}
+
 function getAdsDuoRowHTML() {
   return `
       <div class="ads-duo-row">
@@ -272,6 +288,7 @@ function generateAllGamesIndex(allGames) {
   <meta name="description" content="Browse all static HTML game pages on Unblocked Games G+.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="${SITE_URL}/all-games.html">
+  <link rel="preload" as="script" href="https://live.demand.supply/up.js"><script async data-cfasync="false" type="text/javascript" src="https://live.demand.supply/up.js"></script>
   <link rel="manifest" href="/manifest.webmanifest">
   <meta name="theme-color" content="#7c3aed">
   <meta name="mobile-web-app-capable" content="yes">
@@ -298,6 +315,7 @@ function generateAllGamesIndex(allGames) {
     .game-link strong { display: block; font-size: 1rem; padding: 12px 14px 6px; }
     .game-link span { display: block; color: #94a3b8; font-size: 0.9rem; padding: 0 14px 14px; line-height: 1.5; }
     .ad-banner { display: flex; justify-content: center; margin: 24px 0; background: rgba(255,255,255,0.02); border: 1px dashed rgba(255,255,255,0.05); border-radius: 12px; padding: 8px 0; width: 100%; overflow: hidden; }
+    .ad-banner-adsense { display: block; margin: 20px auto; max-width: 100%; overflow: hidden; text-align: center; min-height: 90px; }
     .ads-duo-row { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin: 24px auto; max-width: 660px; }
     .ad-container-300 { min-width: 300px; min-height: 250px; background: rgba(255,255,255,0.02); border: 1px dashed rgba(255,255,255,0.05); border-radius: 12px; padding: 8px; display: flex; justify-content: center; align-items: center; overflow: hidden; }
     .btn-install-app {
@@ -345,7 +363,7 @@ function generateAllGamesIndex(allGames) {
 </head>
 <body>
   <div class="wrap">
-    ${getAdHTML(AD_TOP)}
+    ${getAdSenseHTML('Iklan Responsive unblockedgames - Top Banner')}
     <h1>All Unblocked Games</h1>
     <p>Static HTML directory of every game page available on Unblocked Games G+.</p>
     <div style="display:flex;justify-content:space-between;align-items:center;margin:12px 0 28px;flex-wrap:wrap;gap:12px;">
@@ -358,6 +376,7 @@ function generateAllGamesIndex(allGames) {
     <ul>
 ${items}
     </ul>
+    ${getAdHTML(AD_TOP)}
     ${getAdsDuoRowHTML()}
     ${getAdHTML(AD_BOTTOM)}
     <footer style="margin-top:40px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.08);text-align:center;font-size:0.85rem;color:#94a3b8;">
@@ -426,6 +445,7 @@ function generateGamePage(game, allGames) {
   <meta name="robots" content="index, follow">
   <meta name="author" content="Unblocked Games G+">
   <link rel="canonical" href="${escapeHtml(url)}">
+  <link rel="preload" as="script" href="https://live.demand.supply/up.js"><script async data-cfasync="false" type="text/javascript" src="https://live.demand.supply/up.js"></script>
   <meta property="og:type" content="website">
   <meta property="og:url" content="${escapeHtml(url)}">
   <meta property="og:title" content="${escapeHtml(title)}">
@@ -528,6 +548,9 @@ function generateGamePage(game, allGames) {
     .ad-banner {
       display:flex; justify-content:center; margin:16px 0; background:rgba(255,255,255,0.02); border:1px dashed rgba(255,255,255,0.05);
       border-radius:12px; padding:8px 0; width:100%; overflow:hidden;
+    }
+    .ad-banner-adsense {
+      display:block; margin:16px auto; max-width:100%; overflow:hidden; text-align:center; min-height:90px;
     }
     .ads-duo-row {
       display:flex; justify-content:center; gap:16px; flex-wrap:wrap; margin:18px 0;
@@ -719,7 +742,7 @@ function generateGamePage(game, allGames) {
     ${buildSidebar(primaryCat)}
     <main class="main-content">
     <div class="shell">
-      ${getAdHTML(AD_TOP)}
+      ${getAdSenseHTML('Iklan Responsive unblockedgames - Top Banner')}
       <div class="play-page">
       <div class="play-header">
         <a class="btn-back" href="/">← Back</a>
@@ -757,9 +780,12 @@ function generateGamePage(game, allGames) {
         </div>
       </div>
 
-      ${getAdsDuoRowHTML()}
+      ${getAdSenseHTML('Iklan Responsive unblockedgames - Article Play')}
 
       ${buildGameSeoContent(game, cats)}
+
+      ${getAdHTML(AD_TOP)}
+      ${getAdsDuoRowHTML()}
 
       ${related.length ? `
       <div class="related-section">

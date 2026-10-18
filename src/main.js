@@ -13,6 +13,30 @@ function getAdHTML(key) {
   return `<div class="ad-banner" style="display:flex;justify-content:center;margin:16px 0;background:rgba(255,255,255,0.02);border:1px dashed rgba(255,255,255,0.05);border-radius:12px;padding:8px 0;width:100%;overflow:hidden;"><iframe srcdoc="${srcdoc}" width="728" height="90" frameborder="0" scrolling="no" style="display:block;margin:0;padding:0;border:none;"></iframe></div>`;
 }
 
+function getAdSenseHTML(comment = 'Iklan Responsive unblockedgames') {
+  return `
+    <div class="ad-banner-adsense" style="display:block;margin:16px auto;max-width:100%;overflow:hidden;text-align:center;min-height:90px;">
+      <!-- ${comment} -->
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-8687742238485131"
+           data-ad-slot="8861468349"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+    </div>`;
+}
+
+function initAdSense() {
+  try {
+    const uninitialized = document.querySelectorAll('.adsbygoogle:not([data-adsbygoogle-status])');
+    uninitialized.forEach(() => {
+      (window.adsbygoogle = window.adsbygoogle || []).push({});
+    });
+  } catch (err) {
+    console.warn('AdSense init error:', err);
+  }
+}
+
 function getAdsDuoRowHTML() {
   const srcdoc1 = `<!DOCTYPE html><html><head><style>body{margin:0;padding:0;display:flex;justify-content:center;align-items:center;background:transparent;overflow:hidden;}</style></head><body><script>window.atOptions={'key':'5c2ef2cb97dff829617ea4c4e1d5ca7b','format':'iframe','height':250,'width':300,'params':{}};</script><script src="https://motionlesspatronage.com/5c2ef2cb97dff829617ea4c4e1d5ca7b/invoke.js"></script></body></html>`.replace(/"/g, '&quot;');
   const srcdoc2 = `<!DOCTYPE html><html><head><style>body{margin:0;padding:0;display:flex;justify-content:center;align-items:center;background:transparent;overflow:hidden;}</style></head><body><script>window.atOptions={'key':'ef5cdc72a62a03d1d689161ba6bc82f6','format':'iframe','height':250,'width':300,'params':{}};</script><script src="https://grop.net/22/ef5cdc72a62a03d1d689161ba6bc82f6"></script></body></html>`.replace(/"/g, '&quot;');
@@ -371,7 +395,7 @@ function renderHome() {
     <div class="layout">
       ${buildSidebar()}
       <div class="main-content">
-        ${getAdHTML(AD_TOP)}
+        ${getAdSenseHTML('Iklan Responsive unblockedgames - Top Banner')}
         
         <div class="section-header">
           <h1 class="section-title" id="section-title">
@@ -384,9 +408,10 @@ function renderHome() {
           <button class="btn-load-more" id="btn-load-more">Load More Games</button>
         </div>
 
-        ${getAdHTML(AD_BOTTOM)}
+        ${getAdHTML(AD_TOP)}
         ${getAdsDuoRowHTML()}
         ${buildHomeSeoBlock()}
+        ${getAdHTML(AD_BOTTOM)}
         ${buildFooter()}
       </div>
     </div>
@@ -406,6 +431,7 @@ function renderHome() {
   bindHomeEvents();
   bindRouteLinks();
   renderGames();
+  initAdSense();
 }
 
 function getSlug(title) {
@@ -552,7 +578,7 @@ function renderPlay({ id }) {
     <div class="layout">
       ${buildSidebar()}
       <div class="main-content">
-        ${getAdHTML(AD_TOP)}
+        ${getAdSenseHTML('Iklan Responsive unblockedgames - Top Banner')}
         <div class="play-page">
           <div class="play-header">
             <button class="btn-back" id="btn-back">← Back</button>
@@ -576,8 +602,10 @@ function renderPlay({ id }) {
               sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-pointer-lock allow-top-navigation allow-modals"
             ></iframe>
           </div>
-          ${getAdsDuoRowHTML()}
+          ${getAdSenseHTML('Iklan Responsive unblockedgames - Article Play')}
           ${buildGameSeoContent(game, cats)}
+          ${getAdHTML(AD_TOP)}
+          ${getAdsDuoRowHTML()}
           ${related.length ? `
           <div class="related-section">
             <div class="related-section-header">
@@ -626,6 +654,7 @@ function renderPlay({ id }) {
     navigate('/');
   });
   bindRouteLinks();
+  initAdSense();
 }
 
 // ──── Static Page ────────────────────────────────────────────

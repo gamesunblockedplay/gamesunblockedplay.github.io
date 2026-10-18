@@ -1,1 +1,20 @@
 google.com, pub-8687742238485131, DIRECT, f08c47fec0942fa0
+demand.supply, yuZiaMEC38ey536Cf, DIRECT
+relabe.com, yuZiaMEC38ey536Cf, DIRECT
+google.com, pub-3831894559014614, RESELLER, f08c47fec0942fa0
+sulvo.com, yuZiaMEC38ey536Cf, DIRECT
+surgeprice.com, yuZiaMEC38ey536Cf, DIRECT
+aps.amazon.com, 66ef05f7-ad53-48f6-873a-ac7543370392, DIRECT
+rubiconproject.com, 19818, DIRECT, 0bfd66d529a55807
+sovrn.com, 326635, DIRECT, fafdf38b16bf6b2b
+lijit.com, 326635, DIRECT, fafdf38b16bf6b2b
+lijit.com, 326635-eb, DIRECT, fafdf38b16bf6b2b
+adingo.jp, 24359, DIRECT
+yahoo.com, 55774, DIRECT
+onetag.com, 769b9ae3d197a06, DIRECT
+onetag.com, 769b9ae3d197a06-OB, DIRECT
+rubiconproject.com, 23372, DIRECT, 0bfd66d529a55807
+rubiconproject.com, 19820, DIRECT, 0bfd66d529a55807
+themediagrid.com, JTQKMP, RESELLER, 35d5010d7789b49d
+media.net, 8CUZ1MK22, RESELLER
+risecodes.com, 63832beef8189a00015cb6d3, RESELLER
