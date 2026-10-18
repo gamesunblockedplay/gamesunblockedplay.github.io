@@ -112,16 +112,20 @@ function getAdHTML(key) {
   return `<div class="ad-banner"><iframe srcdoc="${srcdoc}" width="728" height="90" frameborder="0" scrolling="no" style="display:block;margin:0;padding:0;border:none;"></iframe></div>`;
 }
 
-function getAdSenseHTML(comment = 'Iklan Responsive unblockedgames 2') {
+const ADSENSE_CLIENT = 'ca-pub-8687742238485131';
+const ADSENSE_SLOT_TOP = '8861468349';
+const ADSENSE_SLOT_HERO = '6097283217';
+
+function getAdSenseHTML(slot = ADSENSE_SLOT_TOP, comment = 'Iklan Responsive unblockedgames') {
   return `
     <div class="ad-banner-adsense" style="display:block;width:100%;box-sizing:border-box;margin:18px 0;text-align:center;min-height:90px;overflow:hidden;">
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8687742238485131"
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}"
            crossorigin="anonymous"></script>
       <!-- ${comment} -->
       <ins class="adsbygoogle"
            style="display:block;width:100%;min-height:90px;"
-           data-ad-client="ca-pub-8687742238485131"
-           data-ad-slot="6097283217"
+           data-ad-client="${ADSENSE_CLIENT}"
+           data-ad-slot="${slot}"
            data-ad-format="auto"
            data-full-width-responsive="true"></ins>
       <script>
@@ -378,7 +382,7 @@ function generateAllGamesIndex(allGames) {
 </head>
 <body>
   <div class="wrap">
-    ${getAdSenseHTML('Iklan Responsive unblockedgames - Top Banner')}
+    ${getAdSenseHTML(ADSENSE_SLOT_TOP, 'Iklan Responsive unblockedgames')}
     <h1>All Unblocked Games</h1>
     <p>Static HTML directory of every game page available on Unblocked Games G+.</p>
     <div style="display:flex;justify-content:space-between;align-items:center;margin:12px 0 28px;flex-wrap:wrap;gap:12px;">
@@ -760,7 +764,7 @@ function generateGamePage(game, allGames) {
     ${buildSidebar(primaryCat)}
     <main class="main-content">
     <div class="shell">
-      ${getAdSenseHTML('Iklan Responsive unblockedgames - Top Banner')}
+      ${getAdSenseHTML(ADSENSE_SLOT_TOP, 'Iklan Responsive unblockedgames')}
       <div class="play-page">
       <div class="play-header">
         <a class="btn-back" href="/">← Back</a>
@@ -798,7 +802,7 @@ function generateGamePage(game, allGames) {
         </div>
       </div>
 
-      ${getAdSenseHTML('Iklan Responsive unblockedgames - Article Play')}
+      ${getAdSenseHTML(ADSENSE_SLOT_HERO, 'Iklan Responsive unblockedgames 2')}
 
       ${buildGameSeoContent(game, cats)}
 
