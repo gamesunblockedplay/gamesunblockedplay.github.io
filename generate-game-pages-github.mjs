@@ -115,6 +115,8 @@ function getAdHTML(key) {
 function getAdSenseHTML(comment = 'Iklan Responsive unblockedgames') {
   return `
     <div class="ad-banner-adsense" style="display:block;margin:16px auto;max-width:100%;overflow:hidden;text-align:center;min-height:90px;">
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8687742238485131"
+           crossorigin="anonymous"></script>
       <!-- ${comment} -->
       <ins class="adsbygoogle"
            style="display:block"

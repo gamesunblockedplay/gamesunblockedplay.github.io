@@ -1,4 +1,4 @@
-const CACHE_NAME = 'ubg-pwa-v1';
+const CACHE_NAME = 'ubg-pwa-v2';
 
 // Core assets to pre-cache on install
 const PRECACHE_ASSETS = [
@@ -77,7 +77,7 @@ self.addEventListener('fetch', event => {
     return;
   }
 
-  // Handle static assets (CSS, JS, images, fonts, games.json)
+  // Handle static assets (Network first, fallback to cache)
   if (
     url.origin === self.location.origin &&
     (url.pathname.startsWith('/assets/') ||
@@ -88,17 +88,13 @@ self.addEventListener('fetch', event => {
      url.pathname.endsWith('.webp'))
   ) {
     event.respondWith(
-      caches.match(req).then(cached => {
-        const fetchPromise = fetch(req).then(networkRes => {
-          if (networkRes && networkRes.status === 200) {
-            const copy = networkRes.clone();
-            caches.open(CACHE_NAME).then(cache => cache.put(req, copy));
-          }
-          return networkRes;
-        }).catch(() => null);
-
-        return cached || fetchPromise;
-      })
+      fetch(req).then(networkRes => {
+        if (networkRes && networkRes.status === 200) {
+          const copy = networkRes.clone();
+          caches.open(CACHE_NAME).then(cache => cache.put(req, copy));
+        }
+        return networkRes;
+      }).catch(() => caches.match(req))
     );
     return;
   }
