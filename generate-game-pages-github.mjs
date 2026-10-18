@@ -114,18 +114,31 @@ function getAdHTML(key) {
 
 function getAdSenseHTML(comment = 'Iklan Responsive unblockedgames 2') {
   return `
-    <div class="ad-banner-adsense" style="display:block;margin:16px auto;max-width:100%;overflow:hidden;text-align:center;min-height:90px;">
+    <div class="ad-banner-adsense" style="display:block;width:100%;box-sizing:border-box;margin:18px 0;text-align:center;min-height:90px;overflow:hidden;">
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8687742238485131"
            crossorigin="anonymous"></script>
       <!-- ${comment} -->
       <ins class="adsbygoogle"
-           style="display:block"
+           style="display:block;width:100%;min-height:90px;"
            data-ad-client="ca-pub-8687742238485131"
            data-ad-slot="6097283217"
            data-ad-format="auto"
            data-full-width-responsive="true"></ins>
       <script>
-           (adsbygoogle = window.adsbygoogle || []).push({});
+        (function() {
+          function pushAd() {
+            try {
+              (adsbygoogle = window.adsbygoogle || []).push({});
+            } catch (err) {
+              console.warn('AdSense push error:', err);
+            }
+          }
+          if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', pushAd);
+          } else {
+            pushAd();
+          }
+        })();
       </script>
     </div>`;
 }
@@ -518,8 +531,8 @@ function generateGamePage(game, allGames) {
     }
     .sidebar-overlay.open { display:block; }
     .main-content { margin-left:220px; margin-top:56px; padding:16px 16px 40px; flex:1; min-width:0; }
-    .shell { max-width:1240px; margin:0 auto; }
-    .play-page { display:flex; flex-direction:column; gap:0; }
+    .shell { width:100%; max-width:1240px; margin:0 auto; box-sizing:border-box; }
+    .play-page { display:flex; flex-direction:column; gap:0; width:100%; box-sizing:border-box; }
     .btn-menu {
       display:none; align-items:center; justify-content:center; width:36px; height:36px; background:var(--surface2); border:1px solid var(--border);
       border-radius:8px; color:var(--text); font-size:18px; flex-shrink:0; cursor:pointer;
@@ -552,7 +565,10 @@ function generateGamePage(game, allGames) {
       border-radius:12px; padding:8px 0; width:100%; overflow:hidden;
     }
     .ad-banner-adsense {
-      display:block; margin:16px auto; max-width:100%; overflow:hidden; text-align:center; min-height:90px;
+      display:block; width:100%; box-sizing:border-box; margin:18px 0; text-align:center; min-height:90px; overflow:hidden;
+    }
+    .ad-banner-adsense ins.adsbygoogle {
+      display:block !important; width:100% !important; min-width:250px;
     }
     .ads-duo-row {
       display:flex; justify-content:center; gap:16px; flex-wrap:wrap; margin:18px 0;

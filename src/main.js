@@ -15,10 +15,10 @@ function getAdHTML(key) {
 
 function getAdSenseHTML(comment = 'Iklan Responsive unblockedgames 2') {
   return `
-    <div class="ad-banner-adsense" style="display:block;margin:16px auto;max-width:100%;overflow:hidden;text-align:center;min-height:90px;">
+    <div class="ad-banner-adsense" style="display:block;width:100%;box-sizing:border-box;margin:18px 0;text-align:center;min-height:90px;overflow:hidden;">
       <!-- ${comment} -->
       <ins class="adsbygoogle"
-           style="display:block"
+           style="display:block;width:100%;min-height:90px;"
            data-ad-client="ca-pub-8687742238485131"
            data-ad-slot="6097283217"
            data-ad-format="auto"

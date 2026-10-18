@@ -1,4 +1,4 @@
-const CACHE_NAME = 'ubg-pwa-v2';
+const CACHE_NAME = 'ubg-pwa-v3';
 
 // Core assets to pre-cache on install
 const PRECACHE_ASSETS = [
@@ -23,7 +23,8 @@ const BYPASS_DOMAINS = [
   'adservice.google.com',
   'histats.com',
   'googlesyndication.com',
-  'google.com'
+  'google.com',
+  'demand.supply'
 ];
 
 self.addEventListener('install', event => {
@@ -52,8 +53,8 @@ self.addEventListener('fetch', event => {
 
   const url = new URL(req.url);
 
-  // Bypass ad scripts, analytics, and external APIs completely
-  if (BYPASS_DOMAINS.some(d => url.hostname.includes(d))) {
+  // Bypass third-party domains completely so browser handles them natively
+  if (url.origin !== self.location.origin || BYPASS_DOMAINS.some(d => url.hostname.includes(d))) {
     return;
   }
 
@@ -70,7 +71,7 @@ self.addEventListener('fetch', event => {
         })
         .catch(() => {
           return caches.match(req).then(cached => {
-            return cached || caches.match('/') || caches.match('/all-games.html');
+            return cached || caches.match('/') || caches.match('/all-games.html') || new Response('Offline', { status: 503, headers: { 'Content-Type': 'text/plain' } });
           });
         })
     );
@@ -79,13 +80,12 @@ self.addEventListener('fetch', event => {
 
   // Handle static assets (Network first, fallback to cache)
   if (
-    url.origin === self.location.origin &&
-    (url.pathname.startsWith('/assets/') ||
-     url.pathname.endsWith('.json') ||
-     url.pathname.endsWith('.svg') ||
-     url.pathname.endsWith('.png') ||
-     url.pathname.endsWith('.jpg') ||
-     url.pathname.endsWith('.webp'))
+    url.pathname.startsWith('/assets/') ||
+    url.pathname.endsWith('.json') ||
+    url.pathname.endsWith('.svg') ||
+    url.pathname.endsWith('.png') ||
+    url.pathname.endsWith('.jpg') ||
+    url.pathname.endsWith('.webp')
   ) {
     event.respondWith(
       fetch(req).then(networkRes => {
@@ -94,13 +94,8 @@ self.addEventListener('fetch', event => {
           caches.open(CACHE_NAME).then(cache => cache.put(req, copy));
         }
         return networkRes;
-      }).catch(() => caches.match(req))
+      }).catch(() => caches.match(req).then(cached => cached || new Response('', { status: 404 })))
     );
     return;
   }
-
-  // Default network with fallback
-  event.respondWith(
-    fetch(req).catch(() => caches.match(req))
-  );
 });
