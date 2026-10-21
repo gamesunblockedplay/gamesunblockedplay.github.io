@@ -47,6 +47,11 @@ if (fs.existsSync(distAdsTxt)) {
   copyFile(distAdsTxt, path.join(root, 'ads.txt'));
 }
 
+const distRobotsTxt = path.join(distDir, 'robots.txt');
+if (fs.existsSync(distRobotsTxt)) {
+  copyFile(distRobotsTxt, path.join(root, 'robots.txt'));
+}
+
 if (fs.existsSync(distAssetsDir)) {
   copyDir(distAssetsDir, rootAssetsDir);
 }
