@@ -280,6 +280,8 @@ function buildGameSeoContent(game, cats) {
       </div>
     </div>
 
+    ${getAdsDuoRowHTML()}
+
     <!-- How to Play -->
     <div class="game-seo-card">
       <div class="game-seo-card-header">

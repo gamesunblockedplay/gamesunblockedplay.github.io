@@ -247,6 +247,8 @@ function buildGameSeoContent(game, cats) {
       </div>
     </div>
 
+    ${getAdsDuoRowHTML()}
+
     <div class="game-seo-card">
       <div class="game-seo-card-header">
         <span class="game-seo-icon">📚</span>

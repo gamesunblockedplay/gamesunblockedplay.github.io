@@ -195,6 +195,8 @@
       </div>
     </div>
 
+    ${C()}
+
     <!-- How to Play -->
     <div class="game-seo-card">
       <div class="game-seo-card-header">
