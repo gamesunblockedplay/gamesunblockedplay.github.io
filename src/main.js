@@ -470,7 +470,7 @@ function renderHome() {
         ${buildCategoryRibbon()}
         <div class="section-header">
           <h1 class="section-title" id="section-title">
-            ${currentCategory === 'all' ? '🔥 All Games' : CATEGORIES.find(c=>c.id===currentCategory)?.label || currentCategory}
+            ${currentCategory === 'all' ? '🔥 All Games' : (() => { const c = CATEGORIES.find(x => x.id === currentCategory); return c ? `${c.emoji} ${c.label}` : currentCategory; })()}
             <span class="count" id="game-count"></span>
           </h1>
         </div>
@@ -523,7 +523,7 @@ function renderGames() {
     titleEl.innerHTML = `🔍 Results for "<em>${searchQuery}</em>" <span class="count">(${filtered.length})</span>`;
   } else if (titleEl) {
     const cat = CATEGORIES.find(c => c.id === currentCategory);
-    titleEl.innerHTML = `${currentCategory === 'all' ? '🔥 All Games' : cat?.label || currentCategory} <span class="count">(${filtered.length})</span>`;
+    titleEl.innerHTML = `${currentCategory === 'all' ? '🔥 All Games' : (cat ? `${cat.emoji} ${cat.label}` : currentCategory)} <span class="count">(${filtered.length})</span>`;
   }
 
   if (filtered.length === 0) {
