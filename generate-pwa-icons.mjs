@@ -10,7 +10,7 @@ async function createPwaIcons() {
   const svgBuffer = fs.readFileSync(svgPath);
 
   // Background color matching the site theme
-  const bgColor = { r: 8, g: 5, b: 26, alpha: 1 }; // #08051a
+  const bgColor = { r: 11, g: 15, b: 25, alpha: 1 }; // #0b0f19
 
   // Function to create an icon with dark background and centered logo
   async function generateIcon(size, paddingRatio, outputPath) {

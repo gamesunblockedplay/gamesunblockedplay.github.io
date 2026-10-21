@@ -21,10 +21,8 @@ export function resolve() {
     const parts = playParam.split('-');
     const id = parts[0];
     const title = parts.slice(1).join('-');
-    // Create slug from title
-    const slug = title.toLowerCase().replace(/[^a-z0-9\s-]/g, '').replace(/\s+/g, '-').replace(/-+/g, '-').replace(/(^-|-$)/g, '');
-    // Redirect legacy query URLs to the static GitHub Pages game URLs.
-    window.location.href = `https://unblockgamegplus.github.io/game/${slug}.html`;
+    // Redirect legacy query URLs to the static game pages
+    window.location.href = `/game/${slug}.html`;
     return;
   } else if (params.has('page')) {
     // Expected format: ?page=contact

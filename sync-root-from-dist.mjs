@@ -78,7 +78,8 @@ const pwaFiles = [
   'icon-192.png',
   'icon-512.png',
   'icon-512-maskable.png',
-  'apple-touch-icon.png'
+  'apple-touch-icon.png',
+  'style.css'
 ];
 
 for (const file of pwaFiles) {

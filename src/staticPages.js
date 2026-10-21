@@ -2,21 +2,21 @@ export const STATIC_PAGES = {
   about: {
     title: 'About Us',
     content: `
-      <h2>Welcome to Unblocked Games G+</h2>
-      <p>Unblocked Games G+ is your ultimate premium gaming portal, designed from the ground up to offer the most seamless, high-performance HTML5 browser gaming experience available today.</p>
-      <p>We host over 700+ hand-picked unblocked games spanning action, puzzle, driving, platformer, and multiplayer genres. Our mission is to provide an uninterrupted, zero-install, and completely free gaming environment that bypasses strict network filters, making it the perfect platform for students and workers on a quick break.</p>
-      <p>With an ever-growing library and hyper-fast loading speeds, Unblocked Games G+ brings you the games you love directly to your browser.</p>
+      <h2>Welcome to Games Unblocked Play</h2>
+      <p><strong>Games Unblocked Play</strong> is an ultra-fast, modern browser gaming portal crafted for players looking for zero-latency, high-performance HTML5 games with zero installation requirements.</p>
+      <p>We feature over 700+ hand-curated unblocked games across popular genres including Action, Driving & Racing, 2-Player, 3D, Shooting, Puzzle, and Skill. Our primary objective is to deliver an uninterrupted, safe, and lightning-fast gaming platform accessible from school, office, or home on PC, Chromebook, tablet, and mobile devices.</p>
+      <p>Every title in our collection runs in pure HTML5/WebGL, tested for smooth 60 FPS performance without requiring Adobe Flash or risky browser extensions.</p>
     `
   },
   contact: {
     title: 'Contact Us',
     content: `
-      <h2>Get in Touch</h2>
-      <p>Have a question, feedback, or a game request? We'd love to hear from you!</p>
+      <h2>Get in Touch with Games Unblocked Play</h2>
+      <p>Have suggestions, game requests, or technical feedback? Our team is always ready to assist you!</p>
       <ul>
-        <li><strong>Email:</strong> admin@unblockgamegplus.github.io</li>
-        <li><strong>Support:</strong> Our team aims to respond to all technical queries within 48 hours.</li>
-        <li><strong>Game Requests:</strong> Want a specific game unblocked? Send us the title and we'll do our best to add it to our library.</li>
+        <li><strong>Email:</strong> admin@gamesunblockedplay.github.io</li>
+        <li><strong>Response Time:</strong> We review all inquiries within 24 to 48 hours.</li>
+        <li><strong>Game Requests:</strong> Looking for a specific unblocked game? Share the game title and we will analyze compatibility for our library.</li>
       </ul>
     `
   },
@@ -24,39 +24,39 @@ export const STATIC_PAGES = {
     title: 'Terms of Service',
     content: `
       <h2>Terms of Service</h2>
-      <p>By accessing and using Unblocked Games G+, you agree to be bound by the following terms:</p>
+      <p>By visiting and playing on <strong>Games Unblocked Play</strong>, you agree to the following terms and guidelines:</p>
       <ol>
-        <li><strong>Usage:</strong> Our games are provided for personal, non-commercial entertainment purposes only.</li>
-        <li><strong>Availability:</strong> While we strive for 100% uptime, we do not guarantee uninterrupted access to all games.</li>
-        <li><strong>Content Liability:</strong> Games hosted on this site belong to their respective creators. We act solely as a portal index.</li>
+        <li><strong>Personal Entertainment:</strong> All browser games are provided free of charge for non-commercial, personal entertainment purposes.</li>
+        <li><strong>Service Availability:</strong> We continuously optimize server infrastructure for 99.9% uptime, but availability of individual external game mirrors may vary.</li>
+        <li><strong>Intellectual Property:</strong> Games showcased belong to their respective developers and licensors. Games Unblocked Play provides curated indexing and browser emulation support.</li>
       </ol>
-      <p>These terms are subject to change without prior notice.</p>
+      <p>We reserve the right to update these terms to reflect infrastructure and policy enhancements.</p>
     `
   },
   privacy: {
     title: 'Privacy Policy',
     content: `
       <h2>Privacy Policy</h2>
-      <p>Your privacy is important to us. Here is how we handle your data:</p>
+      <p>Your online privacy and data protection are core priorities at <strong>Games Unblocked Play</strong>:</p>
       <ul>
-        <li><strong>Data Collection:</strong> We do not require account registration or collect personal identifiable information (PII) to play games.</li>
-        <li><strong>Cookies & Local Storage:</strong> We use minimal browser storage to save your game progress and interface preferences (like Dark Mode or Sidebar state).</li>
-        <li><strong>Third-party Analytics:</strong> We use tools like Histats to monitor traffic and improve our website performance securely.</li>
+        <li><strong>Zero Account Tracking:</strong> You can play any game without creating an account or providing personal details.</li>
+        <li><strong>Local Storage:</strong> We use safe client-side browser storage exclusively for saving your gameplay high scores, favorites, and visual settings (such as Theater Mode).</li>
+        <li><strong>Advertisements & Analytics:</strong> Third-party ad partners (such as Google AdSense) and analytics tools (Histats, Ahrefs) may serve contextual ads and monitor traffic metrics to maintain our free service.</li>
       </ul>
     `
   },
   dmca: {
     title: 'DMCA Copyright',
     content: `
-      <h2>DMCA Takedown Policy</h2>
-      <p>Unblocked Games G+ respects intellectual property rights. If you believe your copyrighted work has been infringed upon, please submit a formal DMCA claim to us.</p>
-      <p>To file a takedown request, please email <strong>admin@unblockgamegplus.github.io</strong> with:</p>
+      <h2>DMCA Takedown & Copyright Policy</h2>
+      <p><strong>Games Unblocked Play</strong> complies fully with the Digital Millennium Copyright Act (DMCA). We respect original content creators and copyright holders.</p>
+      <p>If you represent a copyright owner and believe material indexed on our portal infringes your rights, please contact our designated agent at <strong>admin@gamesunblockedplay.github.io</strong> with:</p>
       <ul>
-        <li>Identification of the copyrighted work claimed to have been infringed.</li>
-        <li>The exact URL of the material you want removed.</li>
-        <li>Your contact information and a statement of good faith belief.</li>
+        <li>Identification of the copyrighted game or material.</li>
+        <li>Exact URL link(s) on our portal hosting or referencing the file.</li>
+        <li>Contact information and a verified statement of good-faith ownership.</li>
       </ul>
-      <p>We process all valid requests promptly and will remove infringing materials immediately upon verification.</p>
+      <p>Valid notices are processed swiftly and infringing links will be disabled within 48 hours.</p>
     `
   }
 };

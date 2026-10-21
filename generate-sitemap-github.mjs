@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 
 // URL Root
-const baseUrl = 'https://unblockgamegplus.github.io';
+const baseUrl = 'https://gamesunblockedplay.github.io';
 const gamesJsonPath = path.resolve('public/games.json');
 
 function getSlug(title) {
@@ -46,9 +46,10 @@ try {
   const generateSitemapFile = (filename, gameList) => {
     let xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`;
     
-    // Khusus sitemap pertama, isikan homepage URL
+    // Khusus sitemap pertama, isikan homepage URL & directory
     if (filename === 'sitemap-action.xml') {
       xml += `  <url>\n    <loc>${baseUrl}/</loc>\n    <changefreq>daily</changefreq>\n    <priority>1.0</priority>\n  </url>\n`;
+      xml += `  <url>\n    <loc>${baseUrl}/all-games.html</loc>\n    <changefreq>daily</changefreq>\n    <priority>0.9</priority>\n  </url>\n`;
     }
 
     gameList.forEach(game => {

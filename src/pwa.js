@@ -73,7 +73,7 @@ export function initPWA() {
 export function promptInstall() {
   if (!deferredPrompt) {
     // Fallback if browser doesn't support beforeinstallprompt (e.g. Safari / Firefox)
-    alert('To install Unblocked Games G+:\n• On Chrome/Edge: Click the install icon (⊕) in the browser address bar.\n• On iPhone/iPad: Tap Share and choose "Add to Home Screen".\n• On Android: Tap Menu (⋮) and choose "Install App" or "Add to Home Screen".');
+    alert('To install Games Unblocked Play:\n• On Chrome/Edge: Click the install icon (⊕) in the browser address bar.\n• On iPhone/iPad: Tap Share and choose "Add to Home Screen".\n• On Android: Tap Menu (⋮) and choose "Install App" or "Add to Home Screen".');
     return;
   }
 
@@ -107,10 +107,10 @@ function showInstallBanner() {
   banner.id = 'pwa-install-banner';
   banner.className = 'pwa-install-banner';
   banner.innerHTML = `
-    <img src="/icon-192.png" alt="Unblocked Games G+" class="pwa-banner-icon" />
+    <img src="/icon-192.png" alt="Games Unblocked Play" class="pwa-banner-icon" />
     <div class="pwa-banner-content">
-      <div class="pwa-banner-title">Install Unblocked Games G+</div>
-      <div class="pwa-banner-desc">Play 700+ games directly from your desktop or phone, full screen without browser bars!</div>
+      <div class="pwa-banner-title">Install Games Unblocked Play</div>
+      <div class="pwa-banner-desc">Play 700+ games directly in fullscreen with zero address bar lag!</div>
     </div>
     <div class="pwa-banner-actions">
       <button class="pwa-btn-install" id="pwa-banner-install-btn">📲 Install</button>

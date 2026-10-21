@@ -7,7 +7,7 @@
                        window.navigator.standalone === true;
 
   if (isStandalone) {
-    document.querySelectorAll('.btn-install-app').forEach(btn => {
+    document.querySelectorAll('.btn-install-app, .btn-pwa-install').forEach(btn => {
       btn.style.display = 'none';
     });
     // Tag URL for analytics tracking (Histats, Google Analytics, etc.)
@@ -47,7 +47,7 @@
     deferredPrompt = null;
     window.__pwaDeferredPrompt = null;
     hideInstallBanner();
-    document.querySelectorAll('.btn-install-app').forEach(btn => {
+    document.querySelectorAll('.btn-install-app, .btn-pwa-install').forEach(btn => {
       btn.style.display = 'none';
     });
   });
@@ -59,7 +59,7 @@
       promptEvent.userChoice.then(choice => {
         if (choice.outcome === 'accepted') {
           hideInstallBanner();
-          document.querySelectorAll('.btn-install-app').forEach(btn => {
+          document.querySelectorAll('.btn-install-app, .btn-pwa-install').forEach(btn => {
             btn.style.display = 'none';
           });
         }
@@ -67,7 +67,7 @@
         window.__pwaDeferredPrompt = null;
       });
     } else {
-      alert('To install Unblocked Games G+:\n• On Chrome/Edge: Click the install icon (⊕) in the browser address bar.\n• On iPhone/iPad: Tap Share (⎋) and choose "Add to Home Screen".\n• On Android: Tap Menu (⋮) and choose "Install App" or "Add to Home Screen".');
+      alert('To install Games Unblocked Play:\n• On Chrome/Edge: Click the install icon (⊕) in the browser address bar.\n• On iPhone/iPad: Tap Share (⎋) and choose "Add to Home Screen".\n• On Android: Tap Menu (⋮) and choose "Install App" or "Add to Home Screen".');
     }
   }
 
@@ -75,7 +75,7 @@
 
   // Delegate click on any install button
   document.addEventListener('click', e => {
-    if (e.target.closest('#btn-install-app, .btn-install-app')) {
+    if (e.target.closest('#btn-install-app, .btn-install-app, .btn-pwa-install')) {
       promptInstall();
     }
   });
@@ -89,10 +89,10 @@
     banner.id = 'pwa-install-banner';
     banner.className = 'pwa-install-banner';
     banner.innerHTML = `
-      <img src="/icon-192.png" alt="Unblocked Games G+" class="pwa-banner-icon" />
+      <img src="/icon-192.png" alt="Games Unblocked Play" class="pwa-banner-icon" />
       <div class="pwa-banner-content">
-        <div class="pwa-banner-title">Install Unblocked Games G+</div>
-        <div class="pwa-banner-desc">Play 700+ games directly in fullscreen without browser bars!</div>
+        <div class="pwa-banner-title">Install Games Unblocked Play</div>
+        <div class="pwa-banner-desc">Play 700+ games in fullscreen with zero address bar lag!</div>
       </div>
       <div class="pwa-banner-actions">
         <button class="pwa-btn-install" id="pwa-banner-install-btn" type="button">📲 Install</button>
