@@ -1,7 +1,7 @@
 {
   "name": "Games Unblocked Play - Free Online Games",
   "short_name": "GamePlay",
-  "description": "Play 700+ free unblocked HTML5 games online instantly. Fast loading, no install, no blockers. Action, racing, shooting, puzzle & multiplayer games.",
+  "description": "Play free unblocked HTML5 games online instantly. Fast loading, no install, no blockers. Action, racing, shooting, puzzle & multiplayer games.",
   "start_url": "/?utm_source=pwa&utm_medium=app&utm_campaign=homescreen",
   "scope": "/",
   "display": "standalone",

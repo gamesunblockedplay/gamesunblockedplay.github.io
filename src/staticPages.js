@@ -4,7 +4,7 @@ export const STATIC_PAGES = {
     content: `
       <h2>Welcome to Games Unblocked Play</h2>
       <p><strong>Games Unblocked Play</strong> is an ultra-fast, modern browser gaming portal crafted for players looking for zero-latency, high-performance HTML5 games with zero installation requirements.</p>
-      <p>We feature over 700+ hand-curated unblocked games across popular genres including Action, Driving & Racing, 2-Player, 3D, Shooting, Puzzle, and Skill. Our primary objective is to deliver an uninterrupted, safe, and lightning-fast gaming platform accessible from school, office, or home on PC, Chromebook, tablet, and mobile devices.</p>
+      <p>We feature an expansive library of hand-curated unblocked games across popular genres including Action, Driving & Racing, 2-Player, 3D, Shooting, Puzzle, and Skill. Our primary objective is to deliver an uninterrupted, safe, and lightning-fast gaming platform accessible from school, office, or home on PC, Chromebook, tablet, and mobile devices.</p>
       <p>Every title in our collection runs in pure HTML5/WebGL, tested for smooth 60 FPS performance without requiring Adobe Flash or risky browser extensions.</p>
     `
   },

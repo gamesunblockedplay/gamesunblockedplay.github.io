@@ -1,7 +1,7 @@
 (function(){let e=document.createElement(`link`).relList;if(e&&e.supports&&e.supports(`modulepreload`))return;for(let e of document.querySelectorAll(`link[rel="modulepreload"]`))n(e);new MutationObserver(e=>{for(let t of e)if(t.type===`childList`)for(let e of t.addedNodes)e.tagName===`LINK`&&e.rel===`modulepreload`&&n(e)}).observe(document,{childList:!0,subtree:!0});function t(e){let t={};return e.integrity&&(t.integrity=e.integrity),e.referrerPolicy&&(t.referrerPolicy=e.referrerPolicy),e.crossOrigin===`use-credentials`?t.credentials=`include`:e.crossOrigin===`anonymous`?t.credentials=`omit`:t.credentials=`same-origin`,t}function n(e){if(e.ep)return;e.ep=!0;let n=t(e);fetch(e.href,n)}})();function e(e){return`/img/class-${e.id}.webp`}var t=[{id:`all`,emoji:`🎮`,label:`All Games`,shortLabel:`All Games`},{id:`Popular`,emoji:`🔥`,label:`Popular`,shortLabel:`Popular`},{id:`New`,emoji:`🆕`,label:`New`,shortLabel:`New`},{id:`Skill`,emoji:`🧠`,label:`Skill`,shortLabel:`Skill`},{id:`Running`,emoji:`🏃`,label:`Running`,shortLabel:`Running`},{id:`Adventure`,emoji:`🗺️`,label:`Adventure`,shortLabel:`Adventure`},{id:`Platform`,emoji:`🕹️`,label:`Platform`,shortLabel:`Platform`},{id:`Car`,emoji:`🏎️`,label:`Car`,shortLabel:`Car`},{id:`Racing`,emoji:`🏁`,label:`Racing`,shortLabel:`Racing`},{id:`Moto`,emoji:`🏍️`,label:`Moto`,shortLabel:`Moto`},{id:`3D`,emoji:`🎲`,label:`3D`,shortLabel:`3D`},{id:`Shooting`,emoji:`🎯`,label:`Shooting`,shortLabel:`Shooting`},{id:`Multiplayer`,emoji:`👥`,label:`Multiplayer`,shortLabel:`Multiplayer`},{id:`2 Player`,emoji:`🤝`,label:`2 Player`,shortLabel:`2 Player`},{id:`Sports`,emoji:`⚽`,label:`Sports`,shortLabel:`Sports`},{id:`Puzzle`,emoji:`🧩`,label:`Puzzle`,shortLabel:`Puzzle`},{id:`Animal`,emoji:`🐾`,label:`Animal`,shortLabel:`Animal`},{id:`Stickman`,emoji:`🥊`,label:`Stickman`,shortLabel:`Stickman`},{id:`Simulation`,emoji:`🖥️`,label:`Simulation`,shortLabel:`Simulation`},{id:`Management`,emoji:`🏗️`,label:`Management`,shortLabel:`Management`},{id:`Survival`,emoji:`🌿`,label:`Survival`,shortLabel:`Survival`},{id:`Strategy`,emoji:`♟️`,label:`Strategy`,shortLabel:`Strategy`},{id:`Board`,emoji:`♜`,label:`Board`,shortLabel:`Board`},{id:`Girls`,emoji:`💖`,label:`Girls`,shortLabel:`Girls`}],n={};function r(e,t){n[e]=t}function i(e){history.pushState(null,``,e),a()}function a(){let e=new URLSearchParams(window.location.search);if(e.has(`play`)){let t=e.get(`play`).split(`-`);t[0],t.slice(1).join(`-`),window.location.href=`/game/${slug}.html`;return}else if(e.has(`page`)){let t=e.get(`page`);n[`/page`]&&n[`/page`]({id:t})}else n[`/`]&&n[`/`]({})}function o(){window.addEventListener(`popstate`,a),a()}var s={about:{title:`About Us`,content:`
       <h2>Welcome to Games Unblocked Play</h2>
       <p><strong>Games Unblocked Play</strong> is an ultra-fast, modern browser gaming portal crafted for players looking for zero-latency, high-performance HTML5 games with zero installation requirements.</p>
-      <p>We feature over 700+ hand-curated unblocked games across popular genres including Action, Driving & Racing, 2-Player, 3D, Shooting, Puzzle, and Skill. Our primary objective is to deliver an uninterrupted, safe, and lightning-fast gaming platform accessible from school, office, or home on PC, Chromebook, tablet, and mobile devices.</p>
+      <p>We feature an expansive library of hand-curated unblocked games across popular genres including Action, Driving & Racing, 2-Player, 3D, Shooting, Puzzle, and Skill. Our primary objective is to deliver an uninterrupted, safe, and lightning-fast gaming platform accessible from school, office, or home on PC, Chromebook, tablet, and mobile devices.</p>
       <p>Every title in our collection runs in pure HTML5/WebGL, tested for smooth 60 FPS performance without requiring Adobe Flash or risky browser extensions.</p>
     `},contact:{title:`Contact Us`,content:`
       <h2>Get in Touch with Games Unblocked Play</h2>
@@ -45,7 +45,7 @@
     <img src="/icon-192.png" alt="Games Unblocked Play" class="pwa-banner-icon" />
     <div class="pwa-banner-content">
       <div class="pwa-banner-title">Install Games Unblocked Play</div>
-      <div class="pwa-banner-desc">Play 700+ games directly in fullscreen with zero address bar lag!</div>
+      <div class="pwa-banner-desc">Play all unblocked games directly in fullscreen with zero address bar lag!</div>
     </div>
     <div class="pwa-banner-actions">
       <button class="pwa-btn-install" id="pwa-banner-install-btn">📲 Install</button>
@@ -92,7 +92,7 @@
           <div class="search-input-wrap">
             <span class="search-icon">🔍</span>
             <input type="search" id="search-input" class="search-input"
-              placeholder="Search 700+ free unblocked games (Press '/' to focus)..."
+              placeholder="Search free unblocked games (Press '/' to focus)..."
               autocomplete="off" value="${w}" aria-label="Search unblocked games" />
             <button class="search-clear-btn ${w?`visible`:``}" id="search-clear" type="button" aria-label="Clear search">✕</button>
           </div>
@@ -131,12 +131,12 @@
       <div class="hero-box">
         <div class="hero-content">
           <div class="hero-badge">⚡ Instant Browser Gameplay &bull; 100% Unblocked</div>
-          <h1 class="hero-title">Play 700+ Free Online <span class="highlight">Unblocked Games</span></h1>
+          <h1 class="hero-title">Play Free Online <span class="highlight">Unblocked Games</span></h1>
           <p class="hero-desc">
             Welcome to <strong>Games Unblocked Play</strong>, your premier destination for high-speed, lag-free HTML5 and WebGL browser games. Play directly with zero downloads, no blocked proxies, and 60 FPS performance on Chromebooks, PC, and mobile!
           </p>
           <div class="hero-features">
-            <div class="hero-feat-tag"><span>✓</span> 700+ Playable Titles</div>
+            <div class="hero-feat-tag"><span>✓</span> Hundreds of Free Titles</div>
             <div class="hero-feat-tag"><span>✓</span> No Downloads Required</div>
             <div class="hero-feat-tag"><span>✓</span> Chromebook &amp; School Friendly</div>
             <div class="hero-feat-tag"><span>✓</span> 100% Free Forever</div>
@@ -188,7 +188,7 @@
         <div class="faq-accordion">
           <details class="faq-card" open>
             <summary>What is Games Unblocked Play?</summary>
-            <p><strong>Games Unblocked Play</strong> is an open-access web gaming catalog featuring over 700+ browser games that run without restrictions. It uses modern HTML5 technology to bypass network firewalls commonly encountered in educational institutions and workplaces.</p>
+            <p><strong>Games Unblocked Play</strong> is an open-access web gaming catalog featuring a massive library of browser games that run without restrictions. It uses modern HTML5 technology to bypass network firewalls commonly encountered in educational institutions and workplaces.</p>
           </details>
           <details class="faq-card">
             <summary>Are these games safe and legal to play?</summary>
@@ -232,7 +232,7 @@
         </div>
       </div>
     </footer>
-  `}function F(){document.title=`Games Unblocked Play | Play 700+ Free Online Unblocked Games`;let e=E(`app`);e.innerHTML=`
+  `}function F(){document.title=`Games Unblocked Play | Play Free Online Unblocked Games`;let e=E(`app`);e.innerHTML=`
     ${A()}
     ${j()}
     ${M()}

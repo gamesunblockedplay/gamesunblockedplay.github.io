@@ -110,7 +110,7 @@ function showInstallBanner() {
     <img src="/icon-192.png" alt="Games Unblocked Play" class="pwa-banner-icon" />
     <div class="pwa-banner-content">
       <div class="pwa-banner-title">Install Games Unblocked Play</div>
-      <div class="pwa-banner-desc">Play 700+ games directly in fullscreen with zero address bar lag!</div>
+      <div class="pwa-banner-desc">Play all unblocked games directly in fullscreen with zero address bar lag!</div>
     </div>
     <div class="pwa-banner-actions">
       <button class="pwa-btn-install" id="pwa-banner-install-btn">📲 Install</button>

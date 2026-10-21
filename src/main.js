@@ -126,7 +126,7 @@ function buildHeader() {
           <div class="search-input-wrap">
             <span class="search-icon">🔍</span>
             <input type="search" id="search-input" class="search-input"
-              placeholder="Search 700+ free unblocked games (Press '/' to focus)..."
+              placeholder="Search free unblocked games (Press '/' to focus)..."
               autocomplete="off" value="${searchQuery}" aria-label="Search unblocked games" />
             <button class="search-clear-btn ${searchQuery ? 'visible' : ''}" id="search-clear" type="button" aria-label="Clear search">✕</button>
           </div>
@@ -176,12 +176,12 @@ function buildHero() {
       <div class="hero-box">
         <div class="hero-content">
           <div class="hero-badge">⚡ Instant Browser Gameplay &bull; 100% Unblocked</div>
-          <h1 class="hero-title">Play 700+ Free Online <span class="highlight">Unblocked Games</span></h1>
+          <h1 class="hero-title">Play Free Online <span class="highlight">Unblocked Games</span></h1>
           <p class="hero-desc">
             Welcome to <strong>Games Unblocked Play</strong>, your premier destination for high-speed, lag-free HTML5 and WebGL browser games. Play directly with zero downloads, no blocked proxies, and 60 FPS performance on Chromebooks, PC, and mobile!
           </p>
           <div class="hero-features">
-            <div class="hero-feat-tag"><span>✓</span> 700+ Playable Titles</div>
+            <div class="hero-feat-tag"><span>✓</span> Hundreds of Free Titles</div>
             <div class="hero-feat-tag"><span>✓</span> No Downloads Required</div>
             <div class="hero-feat-tag"><span>✓</span> Chromebook &amp; School Friendly</div>
             <div class="hero-feat-tag"><span>✓</span> 100% Free Forever</div>
@@ -238,7 +238,7 @@ function buildHomeSeoBlock() {
         <div class="faq-accordion">
           <details class="faq-card" open>
             <summary>What is Games Unblocked Play?</summary>
-            <p><strong>Games Unblocked Play</strong> is an open-access web gaming catalog featuring over 700+ browser games that run without restrictions. It uses modern HTML5 technology to bypass network firewalls commonly encountered in educational institutions and workplaces.</p>
+            <p><strong>Games Unblocked Play</strong> is an open-access web gaming catalog featuring a massive library of browser games that run without restrictions. It uses modern HTML5 technology to bypass network firewalls commonly encountered in educational institutions and workplaces.</p>
           </details>
           <details class="faq-card">
             <summary>Are these games safe and legal to play?</summary>
@@ -292,7 +292,7 @@ function buildFooter() {
 
 // ──── Render Home View ──────────────────────────────────────
 function renderHome() {
-  document.title = 'Games Unblocked Play | Play 700+ Free Online Unblocked Games';
+  document.title = 'Games Unblocked Play | Play Free Online Unblocked Games';
 
   const app = $('app');
   app.innerHTML = `

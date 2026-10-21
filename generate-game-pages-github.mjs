@@ -220,9 +220,9 @@ function generateAllGamesIndex(allGames) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>All Games Directory (700+ Free Online Games) - Games Unblocked Play</title>
-  <meta name="description" content="Complete master list of 700+ free unblocked HTML5 browser games on Games Unblocked Play. Play instantly with zero download, no login, Chromebook supported.">
-  <meta name="keywords" content="all games, unblocked games list, 700 games, games unblocked play, free games catalog, html5 games directory">
+  <title>All Games Directory - Play Free Online Unblocked Games | Games Unblocked Play</title>
+  <meta name="description" content="Complete master directory of free unblocked HTML5 browser games on Games Unblocked Play. Play instantly with zero download, no login, Chromebook supported.">
+  <meta name="keywords" content="all games, unblocked games list, games unblocked play, free games catalog, html5 games directory">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="${SITE_URL}/all-games.html">
   <script src="https://analytics.ahrefs.com/analytics.js" data-key="VxerIcrn6oSOObLPI8/+lg" async></script>
@@ -232,8 +232,8 @@ function generateAllGamesIndex(allGames) {
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="${SITE_URL}/all-games.html">
-  <meta property="og:title" content="All Games Directory (700+) | Games Unblocked Play">
-  <meta property="og:description" content="Browse and play all 700+ unblocked HTML5 games directly in your browser.">
+  <meta property="og:title" content="All Games Directory | Games Unblocked Play">
+  <meta property="og:description" content="Browse and play hundreds of unblocked HTML5 games directly in your browser.">
   <meta property="og:site_name" content="Games Unblocked Play">
   <meta property="og:image" content="${SITE_URL}/icon-512.png">
 

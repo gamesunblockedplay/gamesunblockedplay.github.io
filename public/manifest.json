@@ -1,12 +1,12 @@
 {
-  "name": "Unblocked Games G+ - Play Free Games Online",
-  "short_name": "Games G+",
-  "description": "Play 700+ free unblocked HTML5 games online instantly. No download, no install. Action, racing, shooting, puzzle & skill games.",
+  "name": "Games Unblocked Play - Free Online Games",
+  "short_name": "GamePlay",
+  "description": "Play free unblocked HTML5 games online instantly. No download, no install. Action, racing, shooting, puzzle & skill games.",
   "start_url": "/?utm_source=pwa&utm_medium=app&utm_campaign=homescreen",
   "scope": "/",
   "display": "standalone",
-  "background_color": "#08051a",
-  "theme_color": "#7c3aed",
+  "background_color": "#0b0f19",
+  "theme_color": "#00e5ff",
   "orientation": "any",
   "lang": "en",
   "categories": [
