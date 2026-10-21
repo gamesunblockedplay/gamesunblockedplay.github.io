@@ -53,6 +53,9 @@ if (fs.existsSync(distRobotsTxt)) {
 }
 
 if (fs.existsSync(distAssetsDir)) {
+  if (fs.existsSync(rootAssetsDir)) {
+    fs.rmSync(rootAssetsDir, { recursive: true, force: true });
+  }
   copyDir(distAssetsDir, rootAssetsDir);
 }
 

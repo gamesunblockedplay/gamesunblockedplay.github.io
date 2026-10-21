@@ -40,32 +40,53 @@ const ADSENSE_SLOT_300_RIGHT = '9115302567';
 
 function getAdsDuoRowHTML() {
   return `
-  <div class="ads-duo-row" style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin:18px 0;">
-    <div class="ad-container-300" style="min-width:300px;min-height:250px;background:rgba(255,255,255,0.02);border:1px dashed rgba(255,255,255,0.05);border-radius:12px;padding:8px;display:flex;justify-content:center;align-items:center;overflow:hidden;">
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}"
-           crossorigin="anonymous"></script>
-      <!-- 300x250_games_kiri -->
-      <ins class="adsbygoogle"
-           style="display:inline-block;width:300px;height:250px"
-           data-ad-client="${ADSENSE_CLIENT}"
-           data-ad-slot="${ADSENSE_SLOT_300_LEFT}"></ins>
-      <script>
-           (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-    </div>
-    <div class="ad-container-300" style="min-width:300px;min-height:250px;background:rgba(255,255,255,0.02);border:1px dashed rgba(255,255,255,0.05);border-radius:12px;padding:8px;display:flex;justify-content:center;align-items:center;overflow:hidden;">
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}"
-           crossorigin="anonymous"></script>
-      <!-- 300x250_games_kanan -->
-      <ins class="adsbygoogle"
-           style="display:inline-block;width:300px;height:250px"
-           data-ad-client="${ADSENSE_CLIENT}"
-           data-ad-slot="${ADSENSE_SLOT_300_RIGHT}"></ins>
-      <script>
-           (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
+  <div class="ads-duo-wrap">
+    <span class="ads-duo-badge">✨ ADVERTISEMENT</span>
+    <div class="ads-duo-row">
+      <div class="ad-container-300">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}"
+             crossorigin="anonymous"></script>
+        <!-- 300x250_games_kiri -->
+        <ins class="adsbygoogle"
+             style="display:inline-block;width:300px;height:250px"
+             data-ad-client="${ADSENSE_CLIENT}"
+             data-ad-slot="${ADSENSE_SLOT_300_LEFT}"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+      <div class="ad-container-300">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}"
+             crossorigin="anonymous"></script>
+        <!-- 300x250_games_kanan -->
+        <ins class="adsbygoogle"
+             style="display:inline-block;width:300px;height:250px"
+             data-ad-client="${ADSENSE_CLIENT}"
+             data-ad-slot="${ADSENSE_SLOT_300_RIGHT}"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
     </div>
   </div>`;
+}
+
+// ──── Category Ribbon (Horizontal Top Navigation Bar) ──────
+function buildCategoryRibbon() {
+  return `
+    <nav class="cat-ribbon" aria-label="Quick Category Filter">
+      <button class="ribbon-arrow ribbon-arrow-left" id="ribbon-prev" type="button" aria-label="Scroll categories left">‹</button>
+      <div class="cat-ribbon-track" id="cat-ribbon-track">
+        ${CATEGORIES.map(c => `
+          <button type="button" class="ribbon-chip ${currentCategory === c.id ? 'active' : ''}" data-cat="${c.id}" id="ribbon-${c.id}">
+            <span class="chip-icon">${c.emoji}</span>
+            <span class="chip-label">${c.shortLabel || c.label}</span>
+          </button>
+        `).join('')}
+      </div>
+      <button class="ribbon-arrow ribbon-arrow-right" id="ribbon-next" type="button" aria-label="Scroll categories right">›</button>
+    </nav>
+  `;
 }
 
 // ──── State ────────────────────────────────────────────────
@@ -107,7 +128,11 @@ function getFiltered() {
 function buildSidebar() {
   return `
     <aside class="sidebar" id="sidebar" role="navigation" aria-label="Game categories">
-      <div class="sidebar-section-label">Categories</div>
+      <div class="sidebar-header">
+        <div class="sidebar-header-title">🎮 Categories</div>
+        <button class="sidebar-close-btn" id="sidebar-close-btn" type="button" aria-label="Close menu">✕</button>
+      </div>
+      <div class="sidebar-section-label">All Categories (${GAMES.length || '700+'})</div>
       ${CATEGORIES.map(c => {
         const count = getCatCount(c.id);
         if (count === 0 && c.id !== 'all') return '';
@@ -128,12 +153,15 @@ function buildHeader() {
   return `
     <header class="top-header" role="banner">
       <div class="header-logo-wrap">
-        <button class="btn-menu" id="btn-menu" aria-label="Open categories">☰</button>
+        <button class="btn-menu" id="btn-menu" type="button" aria-label="Open categories menu">
+          <span class="btn-menu-icon">☰</span>
+          <span class="btn-menu-label">Categories</span>
+        </button>
         <a href="/" class="header-logo route-link" data-route="/">Unblocked<span class="g">Games</span><span class="gplus">G+</span></a>
       </div>
       <div class="header-search">
         <span class="header-search-icon">🔍</span>
-        <input type="search" id="search-input" placeholder="Search ${GAMES.length}+ unblocked games..."
+        <input type="search" id="search-input" placeholder="Search 700+ unblocked games..."
           autocomplete="off" value="${searchQuery}" aria-label="Search unblocked games G+" />
         <button class="search-clear-btn" id="search-clear" style="display:${searchQuery ? 'flex' : 'none'}" aria-label="Clear search">✕</button>
       </div>
@@ -142,7 +170,7 @@ function buildHeader() {
           <span class="install-icon">📲</span>
           <span class="install-text">Install App</span>
         </button>
-        <span class="header-count">${GAMES.length}+ Games</span>
+        <span class="header-count">${GAMES.length || '700'}+ Games</span>
       </div>
     </header>
   `;
@@ -415,7 +443,7 @@ function renderHome() {
       ${buildSidebar()}
       <div class="main-content">
         ${getAdSenseHTML(ADSENSE_SLOT_TOP, 'Iklan Responsive unblockedgames')}
-        
+        ${buildCategoryRibbon()}
         <div class="section-header">
           <h1 class="section-title" id="section-title">
             ${currentCategory === 'all' ? '🔥 All Games' : CATEGORIES.find(c=>c.id===currentCategory)?.label || currentCategory}
@@ -539,19 +567,43 @@ function bindHomeEvents() {
     renderGames();
   });
 
+  function setCategory(catId) {
+    currentCategory = catId;
+    visibleCount = 60;
+    document.querySelectorAll('.cat-item').forEach(b => {
+      b.classList.toggle('active', b.dataset.cat === currentCategory);
+    });
+    document.querySelectorAll('.ribbon-chip').forEach(b => {
+      b.classList.toggle('active', b.dataset.cat === currentCategory);
+    });
+    renderGames();
+  }
+
   // Category sidebar
   document.querySelector('.sidebar')?.addEventListener('click', e => {
     const btn = e.target.closest('.cat-item');
     if (!btn) return;
-    currentCategory = btn.dataset.cat;
-    visibleCount = 60;
-    document.querySelectorAll('.cat-item').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    renderGames();
-    // Close mobile sidebar
+    setCategory(btn.dataset.cat);
+    // Close drawer
     $('sidebar')?.classList.remove('open');
     $('sidebar-overlay')?.classList.remove('open');
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Category ribbon (Horizontal Pills)
+  document.querySelector('.cat-ribbon')?.addEventListener('click', e => {
+    const chip = e.target.closest('.ribbon-chip');
+    if (!chip) return;
+    setCategory(chip.dataset.cat);
+    $('section-title')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  });
+
+  // Ribbon scroll arrows
+  $('ribbon-prev')?.addEventListener('click', () => {
+    $('cat-ribbon-track')?.scrollBy({ left: -240, behavior: 'smooth' });
+  });
+  $('ribbon-next')?.addEventListener('click', () => {
+    $('cat-ribbon-track')?.scrollBy({ left: 240, behavior: 'smooth' });
   });
 
   // Load more
@@ -560,10 +612,14 @@ function bindHomeEvents() {
     renderGames();
   });
 
-  // Mobile menu
+  // Mobile / Drawer menu
   $('btn-menu')?.addEventListener('click', () => {
     $('sidebar')?.classList.toggle('open');
     $('sidebar-overlay')?.classList.toggle('open');
+  });
+  $('sidebar-close-btn')?.addEventListener('click', () => {
+    $('sidebar')?.classList.remove('open');
+    $('sidebar-overlay')?.classList.remove('open');
   });
   $('sidebar-overlay')?.addEventListener('click', () => {
     $('sidebar')?.classList.remove('open');
@@ -656,6 +712,10 @@ function renderPlay({ id }) {
   $('btn-menu')?.addEventListener('click', () => {
     $('sidebar')?.classList.toggle('open');
     $('sidebar-overlay')?.classList.toggle('open');
+  });
+  $('sidebar-close-btn')?.addEventListener('click', () => {
+    $('sidebar')?.classList.remove('open');
+    $('sidebar-overlay')?.classList.remove('open');
   });
   $('sidebar-overlay')?.addEventListener('click', () => {
     $('sidebar')?.classList.remove('open');
