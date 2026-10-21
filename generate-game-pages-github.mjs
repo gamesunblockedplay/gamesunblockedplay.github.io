@@ -2,8 +2,6 @@ import fs from 'fs';
 import path from 'path';
 
 const SITE_URL = 'https://unblockgamegplus.github.io';
-const AD_TOP = '72aae8a75da17a34e48ed84feaa311bf';
-const AD_BOTTOM = '4b03159602cba0243869c415124b923e';
 const games = JSON.parse(fs.readFileSync('public/games.json', 'utf8'));
 
 const CAT_ICONS = {
@@ -106,11 +104,7 @@ function getThumbUrl(game) {
   return game.thumb || `https://unblocked-games-g-plus.bitbucket.io/img/class-${game.id}.png`;
 }
 
-function getAdHTML(key) {
-  const srcdoc = `<!DOCTYPE html><html><head><style>body{margin:0;padding:0;display:flex;justify-content:center;align-items:center;background:transparent;overflow:hidden;}</style></head><body><script>window.atOptions={key:'${key}',format:'iframe',height:90,width:728,params:{}};</script><script src="https://biggerbreakerfind.com/${key}/invoke.js"></script></body></html>`
-    .replace(/"/g, '&quot;');
-  return `<div class="ad-banner"><iframe srcdoc="${srcdoc}" width="728" height="90" frameborder="0" scrolling="no" style="display:block;margin:0;padding:0;border:none;"></iframe></div>`;
-}
+
 
 const ADSENSE_CLIENT = 'ca-pub-8687742238485131';
 const ADSENSE_SLOT_TOP = '8861468349';
@@ -147,32 +141,35 @@ function getAdSenseHTML(slot = ADSENSE_SLOT_TOP, comment = 'Iklan Responsive unb
     </div>`;
 }
 
+const ADSENSE_SLOT_300_LEFT = '7132584167';
+const ADSENSE_SLOT_300_RIGHT = '9115302567';
+
 function getAdsDuoRowHTML() {
   return `
       <div class="ads-duo-row">
         <div class="ad-container-300">
+          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8687742238485131"
+               crossorigin="anonymous"></script>
+          <!-- 300x250_games_kiri -->
+          <ins class="adsbygoogle"
+               style="display:inline-block;width:300px;height:250px"
+               data-ad-client="ca-pub-8687742238485131"
+               data-ad-slot="${ADSENSE_SLOT_300_LEFT}"></ins>
           <script>
-            atOptions = {
-              'key': '5c2ef2cb97dff829617ea4c4e1d5ca7b',
-              'format': 'iframe',
-              'height': 250,
-              'width': 300,
-              'params': {}
-            };
+               (adsbygoogle = window.adsbygoogle || []).push({});
           </script>
-          <script src="https://motionlesspatronage.com/5c2ef2cb97dff829617ea4c4e1d5ca7b/invoke.js"></script>
         </div>
         <div class="ad-container-300">
+          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8687742238485131"
+               crossorigin="anonymous"></script>
+          <!-- 300x250_games_kanan -->
+          <ins class="adsbygoogle"
+               style="display:inline-block;width:300px;height:250px"
+               data-ad-client="ca-pub-8687742238485131"
+               data-ad-slot="${ADSENSE_SLOT_300_RIGHT}"></ins>
           <script>
-            atOptions = {
-              'key' : 'ef5cdc72a62a03d1d689161ba6bc82f6',
-              'format' : 'iframe',
-              'height' : 250,
-              'width' : 300,
-              'params' : {}
-            };
+               (adsbygoogle = window.adsbygoogle || []).push({});
           </script>
-          <script src="https://grop.net/22/ef5cdc72a62a03d1d689161ba6bc82f6"></script>
         </div>
       </div>`;
 }
@@ -395,9 +392,7 @@ function generateAllGamesIndex(allGames) {
     <ul>
 ${items}
     </ul>
-    ${getAdHTML(AD_TOP)}
     ${getAdsDuoRowHTML()}
-    ${getAdHTML(AD_BOTTOM)}
     <footer style="margin-top:40px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.08);text-align:center;font-size:0.85rem;color:#94a3b8;">
       <p style="margin:0 0 8px;">
         <a href="/" style="color:#c4b5fd;text-decoration:none;margin:0 10px;">Home</a>
@@ -806,7 +801,6 @@ function generateGamePage(game, allGames) {
 
       ${buildGameSeoContent(game, cats)}
 
-      ${getAdHTML(AD_TOP)}
       ${getAdsDuoRowHTML()}
 
       ${related.length ? `
@@ -816,8 +810,6 @@ function generateGamePage(game, allGames) {
 ${relatedCards}
         </div>
       </div>` : ''}
-
-      ${getAdHTML(AD_BOTTOM)}
     </div>
 
     <footer class="site-footer">

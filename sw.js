@@ -15,9 +15,6 @@ const PRECACHE_ASSETS = [
 
 // Domains that should ALWAYS bypass service worker cache (ads, analytics, dynamic CDN)
 const BYPASS_DOMAINS = [
-  'grop.net',
-  'biggerbreakerfind.com',
-  'motionlesspatronage.com',
   'pagead2.googlesyndication.com',
   'googleads.g.doubleclick.net',
   'adservice.google.com',

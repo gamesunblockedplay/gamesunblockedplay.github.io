@@ -5,13 +5,7 @@ import { STATIC_PAGES } from './staticPages.js';
 import { initPWA, promptInstall } from './pwa.js';
 
 // ──── Ads ──────────────────────────────────────────────────
-const AD_TOP = '72aae8a75da17a34e48ed84feaa311bf';
-const AD_BOTTOM = '4b03159602cba0243869c415124b923e';
 
-function getAdHTML(key) {
-  const srcdoc = `<!DOCTYPE html><html><head><style>body{margin:0;padding:0;display:flex;justify-content:center;align-items:center;background:transparent;overflow:hidden;}</style></head><body><script>window.atOptions={key:'${key}',format:'iframe',height:90,width:728,params:{}};</script><script src="https://biggerbreakerfind.com/${key}/invoke.js"></script></body></html>`.replace(/"/g, '&quot;');
-  return `<div class="ad-banner" style="display:flex;justify-content:center;margin:16px 0;background:rgba(255,255,255,0.02);border:1px dashed rgba(255,255,255,0.05);border-radius:12px;padding:8px 0;width:100%;overflow:hidden;"><iframe srcdoc="${srcdoc}" width="728" height="90" frameborder="0" scrolling="no" style="display:block;margin:0;padding:0;border:none;"></iframe></div>`;
-}
 
 const ADSENSE_CLIENT = 'ca-pub-8687742238485131';
 const ADSENSE_SLOT_TOP = '8861468349';
@@ -41,16 +35,35 @@ function initAdSense() {
   }
 }
 
+const ADSENSE_SLOT_300_LEFT = '7132584167';
+const ADSENSE_SLOT_300_RIGHT = '9115302567';
+
 function getAdsDuoRowHTML() {
-  const srcdoc1 = `<!DOCTYPE html><html><head><style>body{margin:0;padding:0;display:flex;justify-content:center;align-items:center;background:transparent;overflow:hidden;}</style></head><body><script>window.atOptions={'key':'5c2ef2cb97dff829617ea4c4e1d5ca7b','format':'iframe','height':250,'width':300,'params':{}};</script><script src="https://motionlesspatronage.com/5c2ef2cb97dff829617ea4c4e1d5ca7b/invoke.js"></script></body></html>`.replace(/"/g, '&quot;');
-  const srcdoc2 = `<!DOCTYPE html><html><head><style>body{margin:0;padding:0;display:flex;justify-content:center;align-items:center;background:transparent;overflow:hidden;}</style></head><body><script>window.atOptions={'key':'ef5cdc72a62a03d1d689161ba6bc82f6','format':'iframe','height':250,'width':300,'params':{}};</script><script src="https://grop.net/22/ef5cdc72a62a03d1d689161ba6bc82f6"></script></body></html>`.replace(/"/g, '&quot;');
   return `
   <div class="ads-duo-row" style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin:18px 0;">
     <div class="ad-container-300" style="min-width:300px;min-height:250px;background:rgba(255,255,255,0.02);border:1px dashed rgba(255,255,255,0.05);border-radius:12px;padding:8px;display:flex;justify-content:center;align-items:center;overflow:hidden;">
-      <iframe srcdoc="${srcdoc1}" width="300" height="250" frameborder="0" scrolling="no" style="display:block;margin:0;padding:0;border:none;"></iframe>
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}"
+           crossorigin="anonymous"></script>
+      <!-- 300x250_games_kiri -->
+      <ins class="adsbygoogle"
+           style="display:inline-block;width:300px;height:250px"
+           data-ad-client="${ADSENSE_CLIENT}"
+           data-ad-slot="${ADSENSE_SLOT_300_LEFT}"></ins>
+      <script>
+           (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
     </div>
     <div class="ad-container-300" style="min-width:300px;min-height:250px;background:rgba(255,255,255,0.02);border:1px dashed rgba(255,255,255,0.05);border-radius:12px;padding:8px;display:flex;justify-content:center;align-items:center;overflow:hidden;">
-      <iframe srcdoc="${srcdoc2}" width="300" height="250" frameborder="0" scrolling="no" style="display:block;margin:0;padding:0;border:none;"></iframe>
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}"
+           crossorigin="anonymous"></script>
+      <!-- 300x250_games_kanan -->
+      <ins class="adsbygoogle"
+           style="display:inline-block;width:300px;height:250px"
+           data-ad-client="${ADSENSE_CLIENT}"
+           data-ad-slot="${ADSENSE_SLOT_300_RIGHT}"></ins>
+      <script>
+           (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
     </div>
   </div>`;
 }
@@ -414,10 +427,8 @@ function renderHome() {
           <button class="btn-load-more" id="btn-load-more">Load More Games</button>
         </div>
 
-        ${getAdHTML(AD_TOP)}
         ${getAdsDuoRowHTML()}
         ${buildHomeSeoBlock()}
-        ${getAdHTML(AD_BOTTOM)}
         ${buildFooter()}
       </div>
     </div>
@@ -610,7 +621,6 @@ function renderPlay({ id }) {
           </div>
           ${getAdSenseHTML('Iklan Responsive unblockedgames - Article Play')}
           ${buildGameSeoContent(game, cats)}
-          ${getAdHTML(AD_TOP)}
           ${getAdsDuoRowHTML()}
           ${related.length ? `
           <div class="related-section">
@@ -629,7 +639,6 @@ function renderPlay({ id }) {
                 </a>`).join('')}
             </div>
           </div>` : ''}
-          ${getAdHTML(AD_BOTTOM)}
         </div>
       </div>
     </div>

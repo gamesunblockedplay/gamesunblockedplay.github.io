@@ -132,15 +132,7 @@ function generateGamePage(game) {
       <div class="game-meta">Categories: ${categories}</div>
     </div>
 
-    <div class="ad-banner">
-      <iframe srcdoc="<!DOCTYPE html><html><head><style>body{margin:0;padding:0;display:flex;justify-content:center;align-items:center;background:transparent;overflow:hidden;}</style></head><body><script>window.atOptions={key:'72aae8a75da17a34e48ed84feaa311bf',format:'iframe',height:90,width:728,params:{}};</script><script src='https://biggerbreakerfind.com/72aae8a75da17a34e48ed84feaa311bf/invoke.js'></script></body></html>" width="728" height="90" frameborder="0" scrolling="no"></iframe>
-    </div>
-
     <iframe src="${gameUrl}" class="game-iframe" allowfullscreen></iframe>
-
-    <div class="ad-banner">
-      <iframe srcdoc="<!DOCTYPE html><html><head><style>body{margin:0;padding:0;display:flex;justify-content:center;align-items:center;background:transparent;overflow:hidden;}</style></head><body><script>window.atOptions={key:'4b03159602cba0243869c415124b923e',format:'iframe',height:90,width:728,params:{}};</script><script src='https://biggerbreakerfind.com/4b03159602cba0243869c415124b923e/invoke.js'></script></body></html>" width="728" height="90" frameborder="0" scrolling="no"></iframe>
-    </div>
 
     <a href="/" class="back-link">← Back to Unblocked Games G+</a>
   </div>
