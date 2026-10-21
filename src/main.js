@@ -71,6 +71,25 @@ function getAdsDuoRowHTML() {
   </div>`;
 }
 
+function getSingleAd300HTML(slot, comment = '300x250_ad') {
+  return `
+  <div class="ad-box-wrapper">
+    <span class="ad-subtle-badge">✨ ADVERTISEMENT</span>
+    <div class="ad-container-300">
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}"
+           crossorigin="anonymous"></script>
+      <!-- ${comment} -->
+      <ins class="adsbygoogle"
+           style="display:inline-block;width:300px;height:250px"
+           data-ad-client="${ADSENSE_CLIENT}"
+           data-ad-slot="${slot}"></ins>
+      <script>
+           (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+  </div>`;
+}
+
 // ──── Category Ribbon (Horizontal Top Navigation Bar) ──────
 function buildCategoryRibbon() {
   return `
@@ -244,43 +263,46 @@ function buildGameSeoContent(game, cats) {
   return `
   <section class="game-seo-wrap">
     <!-- About -->
-    <div class="game-seo-card">
-      <div class="game-seo-card-header">
-        <span class="game-seo-icon">🎮</span>
-        <h2>About ${game.title}</h2>
+    <div class="game-seo-card about-card-split">
+      <div class="about-card-content">
+        <div class="game-seo-card-header">
+          <span class="game-seo-icon">🎮</span>
+          <h2>About ${game.title}</h2>
+        </div>
+        <p>
+          <strong>${game.title}</strong> is a free unblocked ${primaryCat.toLowerCase()} game available on <strong>Unblocked Games G+</strong>.
+          It belongs to the genre of ${catDescText}.
+          Play <strong>${game.title} unblocked</strong> directly in your browser &mdash; no downloads,
+          no installations, and no registrations required.
+        </p>
+        <p>
+          Whether you&rsquo;re at school, at work, or at home, <strong>Unblocked Games G+</strong> lets you
+          enjoy <strong>${game.title}</strong> instantly on any device. This HTML5 game runs smoothly
+          on desktop, tablet, and mobile browsers.
+        </p>
+        <div class="game-facts-row">
+          <div class="game-fact-item">
+            <span class="game-fact-label">🏷️ Genre</span>
+            <div class="game-fact-tags">${catTags}</div>
+          </div>
+          <div class="game-fact-item">
+            <span class="game-fact-label">🖥️ Platform</span>
+            <div class="game-fact-tags"><span class="game-fact-tag">🌐 Browser (HTML5)</span><span class="game-fact-tag">📱 Mobile</span></div>
+          </div>
+          <div class="game-fact-item">
+            <span class="game-fact-label">💰 Price</span>
+            <div class="game-fact-tags"><span class="game-fact-tag free-tag">✓ 100% Free</span></div>
+          </div>
+          <div class="game-fact-item">
+            <span class="game-fact-label">🔓 Access</span>
+            <div class="game-fact-tags"><span class="game-fact-tag">⚡ No Login</span><span class="game-fact-tag">⚡ No Download</span></div>
+          </div>
+        </div>
       </div>
-      <p>
-        <strong>${game.title}</strong> is a free unblocked ${primaryCat.toLowerCase()} game available on <strong>Unblocked Games G+</strong>.
-        It belongs to the genre of ${catDescText}.
-        Play <strong>${game.title} unblocked</strong> directly in your browser &mdash; no downloads,
-        no installations, and no registrations required.
-      </p>
-      <p>
-        Whether you&rsquo;re at school, at work, or at home, <strong>Unblocked Games G+</strong> lets you
-        enjoy <strong>${game.title}</strong> instantly on any device. This HTML5 game runs smoothly
-        on desktop, tablet, and mobile browsers.
-      </p>
-      <div class="game-facts-row">
-        <div class="game-fact-item">
-          <span class="game-fact-label">🏷️ Genre</span>
-          <div class="game-fact-tags">${catTags}</div>
-        </div>
-        <div class="game-fact-item">
-          <span class="game-fact-label">🖥️ Platform</span>
-          <div class="game-fact-tags"><span class="game-fact-tag">🌐 Browser (HTML5)</span><span class="game-fact-tag">📱 Mobile</span></div>
-        </div>
-        <div class="game-fact-item">
-          <span class="game-fact-label">💰 Price</span>
-          <div class="game-fact-tags"><span class="game-fact-tag free-tag">✓ 100% Free</span></div>
-        </div>
-        <div class="game-fact-item">
-          <span class="game-fact-label">🔓 Access</span>
-          <div class="game-fact-tags"><span class="game-fact-tag">⚡ No Login</span><span class="game-fact-tag">⚡ No Download</span></div>
-        </div>
+      <div class="about-card-ad">
+        ${getSingleAd300HTML(ADSENSE_SLOT_300_RIGHT, '300x250_games_kanan')}
       </div>
     </div>
-
-    ${getAdsDuoRowHTML()}
 
     <!-- How to Play -->
     <div class="game-seo-card">
@@ -677,9 +699,20 @@ function renderPlay({ id }) {
               sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-pointer-lock allow-top-navigation allow-modals"
             ></iframe>
           </div>
-          ${getAdSenseHTML('Iklan Responsive unblockedgames - Article Play')}
+          <div class="hero-row">
+            <div class="hero-thumb">
+              <img src="${getThumbUrl(game)}" alt="${game.title} unblocked" loading="lazy" decoding="async"
+                onerror="this.onerror=null;this.src='https://placehold.co/300x188/0d0a26/8b5cf6?text=${encodeURIComponent(game.title.slice(0,20))}'" />
+              <div class="hero-copy">
+                <h2>${game.title}</h2>
+                <p>Play <strong>${game.title}</strong> unblocked free online on Unblocked Games G+. No download, no login required. Enjoy instant browser gaming on desktop and mobile.</p>
+              </div>
+            </div>
+            <div class="hero-ad-slot">
+              ${getSingleAd300HTML(ADSENSE_SLOT_300_LEFT, '300x250_games_kiri')}
+            </div>
+          </div>
           ${buildGameSeoContent(game, cats)}
-          ${getAdsDuoRowHTML()}
           ${related.length ? `
           <div class="related-section">
             <div class="related-section-header">

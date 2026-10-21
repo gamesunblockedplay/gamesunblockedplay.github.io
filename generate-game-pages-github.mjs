@@ -177,6 +177,25 @@ function getAdsDuoRowHTML() {
       </div>`;
 }
 
+function getSingleAd300HTML(slot, comment = '300x250_ad') {
+  return `
+      <div class="ad-box-wrapper">
+        <span class="ad-subtle-badge">✨ ADVERTISEMENT</span>
+        <div class="ad-container-300">
+          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8687742238485131"
+               crossorigin="anonymous"></script>
+          <!-- ${comment} -->
+          <ins class="adsbygoogle"
+               style="display:inline-block;width:300px;height:250px"
+               data-ad-client="ca-pub-8687742238485131"
+               data-ad-slot="${slot}"></ins>
+          <script>
+               (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
+      </div>`;
+}
+
 function getCategoryCount(categoryId) {
   if (categoryId === 'all') return games.length;
   return games.filter(game => {
@@ -220,34 +239,37 @@ function buildGameSeoContent(game, cats) {
 
   return `
   <section class="game-seo-wrap">
-    <div class="game-seo-card">
-      <div class="game-seo-card-header">
-        <span class="game-seo-icon">🎮</span>
-        <h2>About ${safeTitle}</h2>
+    <div class="game-seo-card about-card-split">
+      <div class="about-card-content">
+        <div class="game-seo-card-header">
+          <span class="game-seo-icon">🎮</span>
+          <h2>About ${safeTitle}</h2>
+        </div>
+        <p><strong>${safeTitle}</strong> is a free unblocked ${escapeHtml(primaryCat.toLowerCase())} game available on <strong>Unblocked Games G+</strong>. It belongs to the genre of ${escapeHtml(catDescText)}.</p>
+        <p>Play <strong>${safeTitle} unblocked</strong> directly in your browser with no downloads, no installations, and no registrations required on desktop or mobile.</p>
+        <div class="game-facts-row">
+          <div class="game-fact-item">
+            <span class="game-fact-label">🏷️ Genre</span>
+            <div class="game-fact-tags">${catTags}</div>
+          </div>
+          <div class="game-fact-item">
+            <span class="game-fact-label">🖥️ Platform</span>
+            <div class="game-fact-tags"><span class="game-fact-tag">🌐 Browser (HTML5)</span><span class="game-fact-tag">📱 Mobile</span></div>
+          </div>
+          <div class="game-fact-item">
+            <span class="game-fact-label">💰 Price</span>
+            <div class="game-fact-tags"><span class="game-fact-tag free-tag">✓ 100% Free</span></div>
+          </div>
+          <div class="game-fact-item">
+            <span class="game-fact-label">🔓 Access</span>
+            <div class="game-fact-tags"><span class="game-fact-tag">⚡ No Login</span><span class="game-fact-tag">⚡ No Download</span></div>
+          </div>
+        </div>
       </div>
-      <p><strong>${safeTitle}</strong> is a free unblocked ${escapeHtml(primaryCat.toLowerCase())} game available on <strong>Unblocked Games G+</strong>. It belongs to the genre of ${escapeHtml(catDescText)}.</p>
-      <p>Play <strong>${safeTitle} unblocked</strong> directly in your browser with no downloads, no installations, and no registrations required on desktop or mobile.</p>
-      <div class="game-facts-row">
-        <div class="game-fact-item">
-          <span class="game-fact-label">🏷️ Genre</span>
-          <div class="game-fact-tags">${catTags}</div>
-        </div>
-        <div class="game-fact-item">
-          <span class="game-fact-label">🖥️ Platform</span>
-          <div class="game-fact-tags"><span class="game-fact-tag">🌐 Browser (HTML5)</span><span class="game-fact-tag">📱 Mobile</span></div>
-        </div>
-        <div class="game-fact-item">
-          <span class="game-fact-label">💰 Price</span>
-          <div class="game-fact-tags"><span class="game-fact-tag free-tag">✓ 100% Free</span></div>
-        </div>
-        <div class="game-fact-item">
-          <span class="game-fact-label">🔓 Access</span>
-          <div class="game-fact-tags"><span class="game-fact-tag">⚡ No Login</span><span class="game-fact-tag">⚡ No Download</span></div>
-        </div>
+      <div class="about-card-ad">
+        ${getSingleAd300HTML(ADSENSE_SLOT_300_RIGHT, '300x250_games_kanan')}
       </div>
     </div>
-
-    ${getAdsDuoRowHTML()}
 
     <div class="game-seo-card">
       <div class="game-seo-card-header">
@@ -626,15 +648,36 @@ function generateGamePage(game, allGames) {
     .loading-note {
       font-size:0.82rem; color:var(--text3); text-align:center; max-width:320px; line-height:1.5;
     }
+    .hero-row {
+      margin: 18px 0 0; display: flex; gap: 20px; align-items: stretch; width: 100%; box-sizing: border-box;
+    }
     .hero-thumb {
-      margin:18px 0 0; display:flex; align-items:center; gap:16px; padding:14px; background:var(--surface); border:1px solid var(--border);
-      border-radius:var(--radius-lg);
+      flex: 1; min-width: 0; margin: 0; display: flex; align-items: center; gap: 16px; padding: 16px;
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); box-shadow: var(--shadow); box-sizing: border-box;
     }
     .hero-thumb img {
-      width:132px; aspect-ratio:16/10; object-fit:cover; border-radius:12px; border:1px solid rgba(255,255,255,0.08); box-shadow:var(--shadow);
+      width: 110px; height: 110px; aspect-ratio: 1/1; object-fit: cover; border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.08); box-shadow: var(--shadow); flex-shrink: 0;
     }
-    .hero-copy h2 { margin:0 0 8px; font-size:1rem; }
-    .hero-copy p { margin:0; color:var(--text2); line-height:1.7; }
+    .hero-copy { flex: 1; min-width: 0; }
+    .hero-copy h2 { margin: 0 0 8px; font-size: 1.12rem; font-weight: 700; color: var(--text); }
+    .hero-copy p { margin: 0; color: var(--text2); line-height: 1.65; font-size: 0.92rem; }
+    .hero-ad-slot {
+      flex: 0 0 300px; width: 300px; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    }
+    .about-card-split {
+      display: flex; gap: 24px; align-items: flex-start; justify-content: space-between; box-sizing: border-box;
+    }
+    .about-card-content { flex: 1; min-width: 0; }
+    .about-card-ad {
+      flex: 0 0 300px; width: 300px; display: flex; flex-direction: column; align-items: center; justify-content: center; align-self: center;
+    }
+    .ad-box-wrapper { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; }
+    .ad-subtle-badge {
+      display: inline-flex; align-items: center; gap: 5px; font-size: 0.62rem; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase; color: var(--text3); margin-bottom: 8px;
+      padding: 3px 10px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 999px;
+    }
     .game-seo-wrap { margin-top:24px; display:flex; flex-direction:column; gap:18px; }
     .game-seo-card {
       background:linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.03)); border:1px solid var(--border); border-radius:var(--radius-xl);
@@ -709,6 +752,13 @@ function generateGamePage(game, allGames) {
       .sidebar-header { display:flex; }
       .main-content { margin-left:0 !important; padding-top:12px; }
     }
+    @media (max-width: 960px) {
+      .hero-row { flex-direction: column; align-items: center; }
+      .hero-ad-slot { width: 100%; margin-top: 10px; }
+      .about-card-split { flex-direction: column; align-items: center; }
+      .about-card-ad { width: 100%; margin-top: 18px; }
+      .ads-duo-row .ad-container-300:nth-child(2) { display: none !important; }
+    }
     @media (max-width: 768px) {
       .top-header { padding:0 14px; gap:10px; }
       .header-logo { font-size:1.1rem; }
@@ -716,11 +766,13 @@ function generateGamePage(game, allGames) {
       .btn-menu { padding:8px 10px; }
       .header-links { display:none; }
       .game-container { min-height:240px; }
-      .hero-thumb { flex-direction:column; align-items:flex-start; }
-      .hero-thumb img { width:100%; max-width:260px; }
-      .game-facts-row { grid-template-columns:1fr; }
       .play-game-title { white-space:normal; }
       .related-grid { grid-template-columns:repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 640px) {
+      .hero-thumb { flex-direction: column; text-align: center; }
+      .hero-thumb img { width: 90px; height: 90px; }
+      .game-facts-row { grid-template-columns: 1fr; }
     }
     .btn-install-app {
       display: inline-flex; align-items: center; gap: 6px;
@@ -824,19 +876,20 @@ function generateGamePage(game, allGames) {
         ></iframe>
       </div>
 
-      <div class="hero-thumb">
-        <img src="${escapeHtml(thumbUrl)}" alt="${safeTitle}" loading="lazy">
-        <div class="hero-copy">
-          <h2>${safeTitle}</h2>
-          <p>${escapeHtml(description)}</p>
+      <div class="hero-row">
+        <div class="hero-thumb">
+          <img src="${escapeHtml(thumbUrl)}" alt="${safeTitle}" loading="lazy">
+          <div class="hero-copy">
+            <h2>${safeTitle}</h2>
+            <p>${escapeHtml(description)}</p>
+          </div>
+        </div>
+        <div class="hero-ad-slot">
+          ${getSingleAd300HTML(ADSENSE_SLOT_300_LEFT, '300x250_games_kiri')}
         </div>
       </div>
 
-      ${getAdSenseHTML(ADSENSE_SLOT_HERO, 'Iklan Responsive unblockedgames 2')}
-
       ${buildGameSeoContent(game, cats)}
-
-      ${getAdsDuoRowHTML()}
 
       ${related.length ? `
       <div class="related-section">
